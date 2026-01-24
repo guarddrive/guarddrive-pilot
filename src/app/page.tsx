@@ -1,143 +1,103 @@
 "use client";
 
-import { useSimulation } from "@/hooks/useSimulation";
-import { cn } from "@/lib/utils";
-import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Shield, Zap, Lock, ArrowRight, Gavel } from "lucide-react";
 
-export default function PilotDashboard() {
-  const { data, isRunning, setRunning } = useSimulation();
-
+export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-void text-foreground p-8 font-mono matrix-grid">
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8 border-b border-bio-green/20 pb-4">
-        <div>
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <Shield className="text-bio-green h-6 w-6" />
-            GUARDDRIVE / FORENSIC VIEW
-          </h1>
-          <p className="text-xs text-muted-foreground tracking-[0.2em]">NODE-BA-SSA-01 // SYMBEON PROTOCOL</p>
-        </div>
-        <div className="flex items-center gap-4">
-           <div className={cn(
-             "px-4 py-1 rounded-full border text-[10px] animate-pulse",
-             data.jammerStatus === "CLEAN" ? "border-bio-green text-bio-green" : "border-red-500 text-red-500 bg-red-500/10"
-           )}>
-             {data.jammerStatus === "CLEAN" ? "SIG-STEALTH: HIGH" : "JAMMER DETECTED"}
-           </div>
-           <button 
-             onClick={() => setRunning(!isRunning)}
-             className="bg-bio-green/10 border border-bio-green/30 px-4 py-1 text-xs hover:bg-bio-green/20 transition-colors"
-           >
-             {isRunning ? "[ STOP SIMULATION ]" : "[ START SIMULATION ]"}
-           </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-void text-foreground font-mono overflow-hidden relative">
+      {/* Background Matrix Grid */}
+      <div className="absolute inset-0 matrix-grid opacity-20 pointer-events-none" />
 
-      {/* Main Grid */}
-      <div className="grid grid-cols-12 gap-6">
+      {/* Hero Section */}
+      <main className="relative z-10 container mx-auto px-6 pt-20 pb-32 flex flex-col items-center text-center">
         
-        {/* Real-time Metrics */}
-        <div className="col-span-12 md:col-span-4 space-y-6">
-           {/* Speed Card */}
-           <div className="bg-bio-dark/20 border border-bio-green/30 p-6 rounded-lg relative overflow-hidden group">
-             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-bio-green to-transparent opacity-50" />
-             <div className="flex justify-between items-start mb-4">
-               <span className="text-[10px] text-bio-green/50">VINT (VELOCITY)</span>
-               <Activity className="h-4 w-4 text-bio-green/50" />
-             </div>
-             <div className="text-6xl font-bold text-bio-green flex items-baseline gap-2">
-               {data.speed.toFixed(0)}
-               <span className="text-xl text-bio-green/50">KM/H</span>
-             </div>
-           </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-8"
+        >
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-bio-green/30 bg-bio-green/5 text-bio-green text-[10px] tracking-widest uppercase mb-6">
+            <Zap className="h-3 w-3 animate-pulse" /> Orbital Launch Phase: Active
+          </div>
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
+            GUARDDRIVE
+          </h1>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+            Establishing the first sovereign infrastructure for inviolable vehicle forensics. 
+            Powered by the <span className="text-bio-green">Symbeon Protocol</span>.
+          </p>
+        </motion.div>
 
-           {/* G-Force Card */}
-           <div className={cn(
-             "border p-6 rounded-lg transition-all duration-300",
-             data.gForce > 5 ? "bg-red-500/20 border-red-500 shadow-[0_0_20px_rgba(239,68,68,0.3)]" : "bg-synth-deep/20 border-synth-purple/30"
-           )}>
-             <div className="flex justify-between items-start mb-4">
-               <span className="text-[10px] text-synth-purple/50">G-FORCE INERTIAL</span>
-               {data.gForce > 5 && <AlertTriangle className="h-4 w-4 text-red-500 animate-bounce" />}
-             </div>
-             <div className="text-4xl font-bold text-white">
-               {data.gForce.toFixed(2)} G
-             </div>
-             <div className="mt-2 text-[10px] text-muted-foreground uppercase">
-               Impact Threshold: 8.0G
-             </div>
-           </div>
+        {/* Hero Portal Visual */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,255,65,0.1)] mb-16 group"
+        >
+          <Image 
+            src="/assets/hero_portal.png" 
+            alt="GuardDrive Hero Portal" 
+            fill 
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
+        </motion.div>
 
-           {/* GPS Status */}
-           <div className="bg-card border border-border p-6 rounded-lg">
-             <div className="flex items-center gap-2 mb-4 text-[10px] text-muted-foreground">
-               <MapPin className="h-3 w-3" /> COORDINATES
-             </div>
-             <div className="text-xs space-y-1">
-               <div className="flex justify-between border-b border-border py-1">
-                 <span>LAT</span><span className="text-bio-green">{data.lat.toFixed(6)}</span>
-               </div>
-               <div className="flex justify-between border-b border-border py-1">
-                 <span>LNG</span><span className="text-bio-green">{data.lng.toFixed(6)}</span>
-               </div>
-             </div>
-           </div>
+        {/* Features / Pillars */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mb-16">
+          <div className="p-6 bg-white/5 border border-white/10 rounded-xl text-left hover:border-bio-green/30 transition-colors">
+            <Shield className="h-6 w-6 text-bio-green mb-4" />
+            <h3 className="text-sm font-bold mb-2">Forensic Integrity</h3>
+            <p className="text-[10px] text-muted-foreground uppercase leading-tight">
+              Real-time inertial validation and crash vector analysis.
+            </p>
+          </div>
+          <div className="p-6 bg-white/5 border border-white/10 rounded-xl text-left hover:border-synth-purple/30 transition-colors">
+            <Lock className="h-6 w-6 text-synth-purple mb-4" />
+            <h3 className="text-sm font-bold mb-2">IP Lockdown</h3>
+            <p className="text-[10px] text-muted-foreground uppercase leading-tight">
+              Local cryptographic signing via Secure Element firmware.
+            </p>
+          </div>
+          <div className="p-6 bg-white/5 border border-white/10 rounded-xl text-left hover:border-blue-400/30 transition-colors">
+            <Gavel className="h-6 w-6 text-blue-400 mb-4" />
+            <h3 className="text-sm font-bold mb-2">Smart Governance</h3>
+            <p className="text-[10px] text-muted-foreground uppercase leading-tight">
+              Direct integration with traffic authority infrastructure.
+            </p>
+          </div>
         </div>
 
-        {/* Evidence Log & Visualizer */}
-        <div className="col-span-12 md:col-span-8 flex flex-col h-full bg-void/50 border border-bio-green/20 rounded-lg p-6">
-           <div className="flex justify-between items-center mb-6">
-             <h2 className="text-sm font-bold flex items-center gap-2">
-               <Lock className="h-3 w-3" /> CRYPTOGRAPHIC EVIDENCE STREAM
-             </h2>
-             <span className="text-[10px] text-bio-green">AES-256 / UNBREAKABLE</span>
-           </div>
-
-           <div className="flex-1 overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-void z-10 pointer-events-none" />
-              <div className="space-y-3 font-mono text-[11px]">
-                  <AnimatePresence mode="popLayout">
-                    <motion.div 
-                      key={data.timestamp}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      className="grid grid-cols-6 gap-2 border-l-2 border-bio-green pl-4 py-2 bg-bio-green/5"
-                    >
-                      <div className="col-span-1 text-bio-green/50">[{data.timestamp.split('T')[1].split('.')[0]}]</div>
-                      <div className="col-span-2 text-white">EVENT_ID: {data.signature.split('-')[2]}</div>
-                      <div className="col-span-3 text-bio-green truncate">SIGNATURE: {data.signature}</div>
-                    </motion.div>
-                    {/* Simulated historical items could go here */}
-                  </AnimatePresence>
-                  {/* Fill empty space with tech text */}
-                  {Array.from({ length: 15 }).map((_, i) => (
-                    <div key={i} className="text-[9px] text-muted-foreground/20 italic">
-                      SYSTEM_PROC_REF_0x{Math.random().toString(16).substring(2,6).toUpperCase()} // DATA_VERIFIED_BY_SYMBEON
-                    </div>
-                  ))}
-              </div>
-           </div>
-
-           <div className="mt-6 pt-4 border-t border-border flex justify-between items-center">
-             <div className="flex gap-4">
-                <div className="flex items-center gap-1">
-                  <Zap className="h-3 w-3 text-bio-green" />
-                  <span className="text-[9px] text-muted-foreground uppercase">Edge Sync: 12ms</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <Shield className="h-3 w-3 text-bio-green" />
-                  <span className="text-[9px] text-muted-foreground uppercase">NFT Verified</span>
-                </div>
-             </div>
-             <div className="text-[10px] text-bio-green bg-bio-green/10 px-2 py-1 rounded">
-               SOVEREIGN_MODE: ACTIVE
-             </div>
-           </div>
+        {/* CTA */}
+        <div className="flex gap-4">
+          <Link href="/dashboard">
+            <button className="flex items-center gap-2 bg-bio-green text-black px-8 py-3 font-bold rounded-lg hover:bg-bio-green/80 transition-all shadow-[0_0_20px_rgba(0,255,65,0.3)]">
+              INITIALIZE COMMAND CENTER <ArrowRight className="h-4 w-4" />
+            </button>
+          </Link>
+          <Link href="/docs">
+            <button className="flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-3 font-bold rounded-lg hover:bg-white/5 transition-all">
+              REVIEW WHITE PAPER
+            </button>
+          </Link>
         </div>
 
-      </div>
+      </main>
+
+      {/* Footer Status */}
+      <footer className="absolute bottom-0 w-full p-6 border-t border-white/5 flex justify-between items-center text-[10px] text-muted-foreground uppercase tracking-widest">
+        <div>System Version: 1.0.0-Pilot</div>
+        <div className="flex gap-6">
+          <span>Latência Edge: 12ms</span>
+          <span className="text-bio-green">Auth Status: Verified</span>
+        </div>
+      </footer>
     </div>
   );
 }
