@@ -4,6 +4,7 @@ import { useSimulation } from "@/hooks/useSimulation";
 import { cn } from "@/lib/utils";
 import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 
 export default function PilotDashboard() {
   const { data, isRunning, setRunning } = useSimulation();
