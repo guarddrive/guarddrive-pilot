@@ -2,7 +2,7 @@
 
 > **Sovereign Infrastructure for Urban Security & Smart City Governance**
 
-![GuardDrive Smart City Context](/src/app/public/assets/smart_city.png)
+![GuardDrive Smart City Context](public/assets/smart_city.png)
 
 ## 👁️ The Vision
 **GuardDrive** is a biocybernetic innovation project designed to transform standard vehicle telemetry into an absolute, cryptographically signed stream of forensic evidence. 
@@ -28,7 +28,8 @@ Featuring a dynamic **E-ink QR Display** and **Infrared Status LEDs**, GuardDriv
 
 | **Forensic View Dashboard** | **Edge Device Concept** |
 | :---: | :---: |
-| ![Dashboard Mockup](/src/app/public/assets/dashboard.png) | ![Hardware Mockup](/src/app/public/assets/edge_device.png) |
+| ![Dashboard Mockup](public/assets/dashboard.png) | ![Hardware Mockup](public/assets/edge_device.png) |
+
 
 ---
 
