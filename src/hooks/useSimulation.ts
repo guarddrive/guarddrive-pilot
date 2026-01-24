@@ -24,6 +24,7 @@ export function useSimulation() {
   });
 
   const [isRunning, setIsRunning] = useState(true);
+  const [validationState, setValidationState] = useState<"IDLE" | "AUDITING" | "VERIFIED" | "NON_COMPLIANT">("IDLE");
 
   const generateData = useCallback(() => {
     setData((prev) => {
@@ -31,6 +32,9 @@ export function useSimulation() {
       const crashRisk = Math.random() > 0.98;
       const gForce = crashRisk ? 8.5 : Math.random() * 0.5 + 0.1;
       
+      // Reset validation on movement if verified
+      if (validationState !== "IDLE") setValidationState("IDLE");
+
       return {
         speed: parseFloat(newSpeed.toFixed(2)),
         gForce: parseFloat(gForce.toFixed(2)),
@@ -41,7 +45,16 @@ export function useSimulation() {
         signature: `TRINITY-SIG-${Math.random().toString(36).substring(7).toUpperCase()}`,
       };
     });
-  }, []);
+  }, [validationState]);
+
+  const validateEvent = async () => {
+    setValidationState("AUDITING");
+    // Connect to Themis Engine (Simulated Latency)
+    setTimeout(() => {
+      const isCompliant = data.gForce < 8.0; // Themis rule: Impact above 8G requires special forensic handling
+      setValidationState(isCompliant ? "VERIFIED" : "NON_COMPLIANT");
+    }, 2000);
+  };
 
   useEffect(() => {
     if (!isRunning) return;
@@ -49,5 +62,5 @@ export function useSimulation() {
     return () => clearInterval(interval);
   }, [isRunning, generateData]);
 
-  return { data, setRunning: setIsRunning, isRunning };
+  return { data, setRunning: setIsRunning, isRunning, validationState, validateEvent };
 }
