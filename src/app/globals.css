@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 135 100% 50%;
+    --primary-foreground: 300 5% 5%;
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 135 100% 50%;
+    --primary-foreground: 300 5% 5%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+  }
+}
+
+.matrix-grid {
+  background-image: 
+    linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+}
