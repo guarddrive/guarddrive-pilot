@@ -5,9 +5,11 @@ import { cn } from "@/lib/utils";
 import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock, Loader2, Gavel } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function PilotDashboard() {
   const { data, isRunning, setRunning, validationState, validateEvent } = useSimulation();
+  const [showCertificate, setShowCertificate] = useState(false);
 
   return (
     <div className="min-h-screen bg-void text-foreground p-8 font-mono matrix-grid">
@@ -45,6 +47,16 @@ export default function PilotDashboard() {
                   {validationState === "VERIFIED" && "✓ CHAIN_OF_CUSTODY: VALID"}
                   {validationState === "NON_COMPLIANT" && "!! ERROR: FORENSIC_CONFLICT"}
                 </button>
+
+                {validationState === "VERIFIED" && (
+                  <button 
+                    onClick={() => setShowCertificate(true)}
+                    className="text-[10px] px-3 py-1 bg-bio-green text-black font-bold animate-bounce shadow-[0_0_10px_rgba(0,255,65,0.5)]"
+                  >
+                    DOWNLOAD_CERTIFICATE.PDF
+                  </button>
+                )}
+
 
                 <div className={cn(
                   "px-4 py-1 rounded-full border text-[10px] animate-pulse",
@@ -235,6 +247,67 @@ export default function PilotDashboard() {
         </div>
 
       </div>
+
+      {/* Forensic Certificate Modal */}
+      <AnimatePresence>
+        {showCertificate && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="fixed inset-0 z-50 bg-void/90 backdrop-blur-md flex items-center justify-center p-6"
+          >
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              className="bg-zinc-900 border border-bio-green/30 w-full max-w-2xl overflow-hidden"
+            >
+              <div className="bg-bio-green p-4 flex justify-between items-center text-black">
+                <span className="font-bold flex items-center gap-2 uppercase tracking-tighter">
+                  <Shield className="h-4 w-4" /> Forensic Evidence Certificate
+                </span>
+                <span className="text-[10px] font-mono">UUID: {data.signature.split('-')[2]}</span>
+              </div>
+              <div className="p-8 font-mono text-xs space-y-6">
+                 <div className="grid grid-cols-2 gap-8 text-[10px] border-b border-white/5 pb-6 text-muted-foreground uppercase">
+                    <div>
+                      <p>Subject: Vehicle Node SSA-01</p>
+                      <p>Authority: Symbeon Protocol v1.0</p>
+                    </div>
+                    <div className="text-right">
+                      <p>Issue Date: {new Date().toLocaleDateString()}</p>
+                      <p>Legal Standard: MLI-2024 / CPC-BR</p>
+                    </div>
+                 </div>
+
+                 <div className="space-y-4">
+                    <h4 className="text-bio-green font-bold uppercase">Audit Summary</h4>
+                    <pre className="p-4 bg-black/40 border border-white/5 rounded leading-relaxed text-[9px] text-white/70">
+{`[VERIFICATION_LOG]
+> HASH_INTEGRITY: POSITIVE
+> TEMPORAL_STAMP: MATCH
+> INERTIAL_VECTOR_ANALYSIS: WITHIN_THRESHOLD
+> L1_HARDWARE_SIGN_STATUS: GENUINE
+> THEMIS_RULESET_COMPLIANCE: 100%
+
+THE EVENT COLLECTED MEETS THE MINIMUM LEGAL REQUIREMENTS FOR FORENSIC ADMISSIBILITY IN BRAZILIAN COURTS.`}
+                    </pre>
+                 </div>
+
+                 <div className="flex justify-between items-end pt-4">
+                    <div className="flex items-center gap-2 opacity-50">
+                       <div className="w-12 h-12 border border-white/20 flex items-center justify-center text-[8px] italic">SEAL</div>
+                       <div className="text-[8px]">SIGNED BY<br/>THEMIS_AI_CORE</div>
+                    </div>
+                    <div className="flex gap-2">
+                       <button onClick={() => setShowCertificate(false)} className="px-4 py-2 border border-white/10 hover:bg-white/5 transition-colors">CLOSE</button>
+                       <button className="px-4 py-2 bg-bio-green text-black font-bold hover:bg-bio-green/80 transition-colors">PRINT_OFFICIAL</button>
+                    </div>
+                 </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
