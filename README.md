@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚔 GuardDrive: Inviolable Vehicle Forensics
 
-## Getting Started
+> **Sovereign Infrastructure for Urban Security & Smart City Governance**
 
-First, run the development server:
+![GuardDrive Smart City Context](/src/app/public/assets/smart_city.png)
+
+## 👁️ The Vision
+**GuardDrive** is a biocybernetic innovation project designed to transform standard vehicle telemetry into an absolute, cryptographically signed stream of forensic evidence. 
+
+By merging **IoT Edge Computing** with **Hybrid Blockchain Architecture**, GuardDrive creates an immutable "Digital Witness" for every vehicle, ensuring transparency for drivers, truth for authorities, and high-fidelity data for insurers.
+
+---
+
+## ⚡ Core Pillars (Trinity Protocol)
+
+### 1. Forensic Telemetry (OPPORTUNITY)
+Real-time tracking of speed, G-force, and inertial patterns. Unlike standard trackers, GuardDrive detects impact vectors and collision angles with scientific precision.
+
+### 2. IP Lockdown (VALIDATION)
+All telemetry data is signed locally via a **Secure Element (STM32)** before transmission. This ensures that the data remains sovereign and untamperable even if the communication network is compromised.
+
+### 3. Smart City Infrastructure (AUTHORITY)
+Featuring a dynamic **E-ink QR Display** and **Infrared Status LEDs**, GuardDrive allows traffic authorities and smart city towers to scan a vehicle's "Identity NFT" and insurance status in real-time, 24/7.
+
+---
+
+## 🎨 Visual Identity
+
+| **Forensic View Dashboard** | **Edge Device Concept** |
+| :---: | :---: |
+| ![Dashboard Mockup](/src/app/public/assets/dashboard.png) | ![Hardware Mockup](/src/app/public/assets/edge_device.png) |
+
+---
+
+## 🛠️ Tech Stack
+- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+- **Styling**: TailwindCSS (Biocybernetic Theme)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Core Protocol**: Symbeon L1 Architecture
+
+## 🚀 Getting Started
 
 ```bash
+# Clone the repository
+git clone https://github.com/th3m1s-core/guarddrive-pilot.git
+
+# Install dependencies
+npm install
+
+# Run the Simulator
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚖️ Governance
+This project is part of the **TrinityOS Ecosystem** and follows the **IP Lockdown Governance** rules. All proprietary logic related to the Symbeon Validator remains in Layer 1.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Project Lead**: [João / SH1W4](https://github.com/SH1W4)  
+**Status**: `ORBITAL_LAUNCH` (Pilot Phase)
