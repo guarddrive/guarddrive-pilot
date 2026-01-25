@@ -2,6 +2,18 @@
 
 import { useState, useEffect, useCallback } from "react";
 
+export interface SEVEWeights {
+  privacy: number;
+  safety: number;
+  forensics: number;
+}
+
+export interface ESGMetrics {
+  gstBalance: number;
+  carbonOffset: number;
+  safeDrivingBonus: number;
+}
+
 export interface TelemetryData {
   speed: number;
   gForce: number;
@@ -10,6 +22,8 @@ export interface TelemetryData {
   jammerStatus: "CLEAN" | "DETECTED";
   timestamp: string;
   signature: string;
+  seveWeights: SEVEWeights;
+  esgMetrics: ESGMetrics;
 }
 
 export function useSimulation() {
@@ -21,6 +35,8 @@ export function useSimulation() {
     jammerStatus: "CLEAN",
     timestamp: new Date().toISOString(),
     signature: "INITIALIZING...",
+    seveWeights: { privacy: 0.9, safety: 0.7, forensics: 0.5 },
+    esgMetrics: { gstBalance: 120.5, carbonOffset: 2.5, safeDrivingBonus: 0.15 },
   });
 
   const [isRunning, setIsRunning] = useState(true);
@@ -32,8 +48,21 @@ export function useSimulation() {
       const crashRisk = Math.random() > 0.98;
       const gForce = crashRisk ? 8.5 : Math.random() * 0.5 + 0.1;
       
+      // Dynamic SEVE adjustment
+      const isEmergency = gForce > 5.0;
+      const newWeights = isEmergency 
+        ? { privacy: 0.5, safety: 1.0, forensics: 0.9 }
+        : { privacy: 0.9, safety: 0.7, forensics: 0.5 };
+
+      // Update ESG metrics simulation
+      const newEsg = {
+        gstBalance: prev.esgMetrics.gstBalance + (isRunning ? 0.01 : 0),
+        carbonOffset: prev.esgMetrics.carbonOffset + (isRunning ? 0.001 : 0),
+        safeDrivingBonus: newSpeed < 80 ? 0.20 : 0.10,
+      };
+
       // Reset validation on movement if verified
-      if (validationState !== "IDLE") setValidationState("IDLE");
+      if (validationState !== "IDLE" && !isEmergency) setValidationState("IDLE");
 
       return {
         speed: parseFloat(newSpeed.toFixed(2)),
@@ -43,15 +72,17 @@ export function useSimulation() {
         jammerStatus: Math.random() > 0.95 ? "DETECTED" : "CLEAN",
         timestamp: new Date().toISOString(),
         signature: `TRINITY-SIG-${Math.random().toString(36).substring(7).toUpperCase()}`,
+        seveWeights: newWeights,
+        esgMetrics: newEsg,
       };
     });
-  }, [validationState]);
+  }, [validationState, isRunning]);
 
   const validateEvent = async () => {
     setValidationState("AUDITING");
-    // Connect to Themis Engine (Simulated Latency)
+    // Connect to Themis/Symbeon Engine (Simulated Latency)
     setTimeout(() => {
-      const isCompliant = data.gForce < 8.0; // Themis rule: Impact above 8G requires special forensic handling
+      const isCompliant = data.gForce < 8.0; 
       setValidationState(isCompliant ? "VERIFIED" : "NON_COMPLIANT");
     }, 2000);
   };

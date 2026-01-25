@@ -4,23 +4,26 @@ import { useSimulation } from "@/hooks/useSimulation";
 import { cn } from "@/lib/utils";
 import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock, Loader2, Gavel } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-import { useState } from "react";
+import SEVEGovernance from "@/components/dashboard/SEVEGovernance";
+import ESGPerformance from "@/components/dashboard/ESGPerformance";
+import NeuralPulse from "@/components/ui/NeuralPulse";
+
 
 export default function PilotDashboard() {
   const { data, isRunning, setRunning, validationState, validateEvent } = useSimulation();
   const [showCertificate, setShowCertificate] = useState(false);
 
   return (
-    <div className="min-h-screen bg-void text-foreground p-8 font-mono matrix-grid">
+    <div className="min-h-screen bg-void text-foreground p-8 font-mono matrix-grid relative overflow-hidden">
+      <NeuralPulse />
       {/* Header */}
       <div className="flex justify-between items-center mb-8 border-b border-bio-green/20 pb-4">
         <div>
           <h1 className="text-2xl font-bold flex items-center gap-2">
             <Shield className="text-bio-green h-6 w-6" />
-            GUARDDRIVE / FORENSIC VIEW
+            GUARDDRIVE // SEVE-SYMBEON INTEGRATED STACK
           </h1>
-          <p className="text-xs text-muted-foreground tracking-[0.2em]">NODE-BA-SSA-01 // SYMBEON PROTOCOL</p>
+          <p className="text-xs text-muted-foreground tracking-[0.2em]">NODE-BA-SSA-01 // COGNITIVE_FORENSICS_V2.0</p>
         </div>
         <div className="flex items-center gap-4">
            <Link 
@@ -177,8 +180,14 @@ export default function PilotDashboard() {
            </div>
         </div>
 
-        {/* Evidence Log & Visualizer */}
-        <div className="col-span-12 md:col-span-8 flex flex-col h-full bg-void/80 border border-white/5 rounded-lg p-6 backdrop-blur-xl relative overflow-hidden">
+         {/* Center Column: Cognitive Layer */}
+         <div className="col-span-12 md:col-span-4 space-y-6">
+            <SEVEGovernance weights={data.seveWeights} />
+            <ESGPerformance metrics={data.esgMetrics} />
+         </div>
+
+         {/* Evidence Log & Visualizer (Right Column) */}
+         <div className="col-span-12 md:col-span-4 flex flex-col h-full bg-void/80 border border-white/5 rounded-lg p-6 backdrop-blur-xl relative overflow-hidden">
            <div className="absolute top-0 right-0 p-4">
               <Zap className="h-4 w-4 text-bio-green opacity-20 animate-pulse" />
            </div>
@@ -279,7 +288,7 @@ export default function PilotDashboard() {
                     </div>
                  </div>
 
-                 <div className="space-y-4">
+                  <div className="space-y-4">
                     <h4 className="text-bio-green font-bold uppercase">Audit Summary</h4>
                     <pre className="p-4 bg-black/40 border border-white/5 rounded leading-relaxed text-[9px] text-white/70">
 {`[VERIFICATION_LOG]
@@ -289,9 +298,16 @@ export default function PilotDashboard() {
 > L1_HARDWARE_SIGN_STATUS: GENUINE
 > THEMIS_RULESET_COMPLIANCE: 100%
 
+[SEVE_CONTEXT_V2.0]
+> DOMAIN: MOBILITY_SSA_01
+> ETHICAL_ADAPTATION: ${data.gForce > 5 ? "EMERGENCY_ESCALATION" : "NOMINAL_NAVIGATION"}
+> PRIVACY_WEIGHT: ${data.seveWeights.privacy.toFixed(2)}
+> SAFETY_WEIGHT: ${data.seveWeights.safety.toFixed(2)}
+> FORENSICS_WEIGHT: ${data.seveWeights.forensics.toFixed(2)}
+
 THE EVENT COLLECTED MEETS THE MINIMUM LEGAL REQUIREMENTS FOR FORENSIC ADMISSIBILITY IN BRAZILIAN COURTS.`}
                     </pre>
-                 </div>
+                  </div>
 
                  <div className="flex justify-between items-end pt-4">
                     <div className="flex items-center gap-2 opacity-50">
