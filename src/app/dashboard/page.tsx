@@ -1,17 +1,35 @@
 "use client";
 
-import { useSimulation } from "@/hooks/useSimulation";
+import { useDigitalTwin } from "@/hooks/useDigitalTwin";
 import { cn } from "@/lib/utils";
-import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock, Loader2, Gavel } from "lucide-react";
+import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock, Loader2, Gavel, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
 import SEVEGovernance from "@/components/dashboard/SEVEGovernance";
 import ESGPerformance from "@/components/dashboard/ESGPerformance";
 import NeuralPulse from "@/components/ui/NeuralPulse";
+import dynamic from "next/dynamic";
 
+// Dynamic import for the map to prevent SSR issues with Leaflet
+const SalvadorMap = dynamic(() => import("@/components/dashboard/SalvadorMap"), { 
+  ssr: false,
+  loading: () => <div className="w-full h-full bg-void animate-pulse flex items-center justify-center text-[10px] text-bio-green uppercase font-mono">Loading Geospatial Twin...</div>
+});
 
 export default function PilotDashboard() {
-  const { data, isRunning, setRunning, validationState, validateEvent } = useSimulation();
+  const { data, isRunning, setIsRunning, triggerCollision, isEmergency } = useDigitalTwin();
+  const [validationState, setValidationState] = useState<"IDLE" | "AUDITING" | "VERIFIED" | "NON_COMPLIANT">("IDLE");
   const [showCertificate, setShowCertificate] = useState(false);
+
+  const validateEvent = async () => {
+    setValidationState("AUDITING");
+    // Connect to Themis/Symbeon Engine (Simulated Latency)
+    setTimeout(() => {
+      const isCompliant = data.gForce < 8.0; 
+      setValidationState(isCompliant ? "VERIFIED" : "NON_COMPLIANT");
+    }, 2000);
+  };
 
   return (
     <div className="min-h-screen bg-void text-foreground p-8 font-mono matrix-grid relative overflow-hidden">
@@ -62,16 +80,23 @@ export default function PilotDashboard() {
 
 
                 <div className={cn(
-                  "px-4 py-1 rounded-full border text-[10px] animate-pulse",
+                  "px-4 py-1 rounded-full border text-[10px] animate-pulse whitespace-nowrap",
                   data.jammerStatus === "CLEAN" ? "border-bio-green text-bio-green" : "border-red-500 text-red-500 bg-red-500/10"
                 )}>
                   {data.jammerStatus === "CLEAN" ? "SIG-STEALTH: HIGH" : "JAMMER DETECTED"}
                 </div>
                 <button 
-                  onClick={() => setRunning(!isRunning)}
-                  className="bg-bio-green/10 border border-bio-green/30 px-4 py-1 text-xs hover:bg-bio-green/20 transition-colors"
+                  onClick={() => setIsRunning(!isRunning)}
+                  className="bg-bio-green/10 border border-bio-green/30 px-4 py-1 text-xs hover:bg-bio-green/20 transition-colors whitespace-nowrap"
                 >
-                  {isRunning ? "[ STOP SIMULATION ]" : "[ START SIMULATION ]"}
+                  {isRunning ? "[ STOP TWIN ]" : "[ SYNC TWIN ]"}
+                </button>
+                <button 
+                  onClick={triggerCollision}
+                  disabled={isEmergency}
+                  className="bg-red-500/20 border border-red-500/50 px-4 py-1 text-xs hover:bg-red-500/40 text-red-500 transition-colors whitespace-nowrap font-bold"
+                >
+                  [ SIMULATE_CRASH ]
                 </button>
              </div>
           </div>
@@ -164,6 +189,14 @@ export default function PilotDashboard() {
              </div>
            </div>
 
+           {/* Digital Twin Map Container */}
+           <div className="h-[250px] w-full relative mb-6">
+              <SalvadorMap 
+                vehiclePos={[data.lat, data.lng]} 
+                isEmergency={isEmergency || data.gForce > 5} 
+              />
+           </div>
+
            {/* GPS Status */}
            <div className="bg-card/30 border border-white/5 p-6 rounded-lg backdrop-blur-sm">
              <div className="flex items-center gap-2 mb-4 text-[10px] text-muted-foreground tracking-widest">
@@ -171,10 +204,13 @@ export default function PilotDashboard() {
              </div>
              <div className="text-[11px] space-y-2 opacity-80">
                <div className="flex justify-between border-b border-white/5 py-1">
-                 <span className="text-white/40">LAT</span><span className="text-bio-green tabular-nums">{data.lat.toFixed(6)}</span>
+                 <span className="text-white/40">LAT</span><span className="text-bio-green tabular-nums font-mono">{data.lat.toFixed(6)}</span>
                </div>
                <div className="flex justify-between border-b border-white/5 py-1">
-                 <span className="text-white/40">LNG</span><span className="text-bio-green tabular-nums">{data.lng.toFixed(6)}</span>
+                 <span className="text-white/40">LNG</span><span className="text-bio-green tabular-nums font-mono">{data.lng.toFixed(6)}</span>
+               </div>
+               <div className="flex items-center gap-2 text-[8px] text-zinc-500 mt-2">
+                 <Info className="h-2 w-2" /> DATA_SOURCE: SALVADOR_LIVING_LAB_TWIN
                </div>
              </div>
            </div>
@@ -211,20 +247,22 @@ export default function PilotDashboard() {
                       exit={{ opacity: 0, height: 0 }}
                       className="flex flex-col gap-1 border-l-2 border-bio-green pl-4 py-2 bg-bio-green/5 group hover:bg-bio-green/10 transition-colors"
                     >
-                      <div className="flex justify-between items-center">
-                        <span className="text-bio-green/40">[{data.timestamp.split('T')[1].split('.')[0]}]</span>
-                        <motion.span 
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          className="text-[9px] text-bio-green scale-75 origin-right"
-                        >
-                          // VERIFIED_BY_SYMBEON
-                        </motion.span>
-                      </div>
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="text-white/60">ID: <span className="text-white">{data.signature.split('-')[2]}</span></div>
-                        <div className="text-bio-green/60 truncate">HASH: {data.signature}</div>
-                      </div>
+                       <div className="flex justify-between items-center">
+                         <span className="text-bio-green/40 font-mono">[{data.timestamp.split('T')[1].split('.')[0]}]</span>
+                         <motion.span 
+                           initial={{ opacity: 0 }}
+                           animate={{ opacity: 1 }}
+                           className="text-[9px] text-bio-green scale-75 origin-right font-bold"
+                         >
+                           // SYMBEON_SEAL_V2.0
+                         </motion.span>
+                       </div>
+                       <div className="grid grid-cols-2 gap-2 text-[8px] uppercase">
+                         <div className="text-white/60">NODE: <span className="text-white">SSA-01</span></div>
+                         <div className="text-white/60 text-right">COORD: <span className="text-bio-green">{data.lat.toFixed(4)}, {data.lng.toFixed(4)}</span></div>
+                         <div className="text-white/60">ADAPT: <span className={cn(data.gForce > 5 ? "text-red-400" : "text-bio-green")}>{data.gForce > 5 ? "EMERGENCY" : "NOMINAL"}</span></div>
+                         <div className="text-bio-green/60 truncate text-right">SIG: {data.signature.split('-')[2]}</div>
+                       </div>
                     </motion.div>
                   </AnimatePresence>
                   
