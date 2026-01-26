@@ -157,6 +157,27 @@ export default function LandingPage() {
                 O <span className="text-white font-bold">Protocolo de Camada 1</span> do GuardDrive estabelece a primeira malha de perícia absoluta, permitindo a **Tokenização de Métricas Comportamentais**. Transformamos o rigor da condução em ativos digitais auditáveis, criando a fundação para uma economia de mobilidade baseada em mérito técnico.
               </p>
             </div>
+
+            {/* Hardware Agnostic Module */}
+            <div className="pt-8">
+               <h3 className="text-lg font-black text-white uppercase tracking-tighter mb-6 flex items-center gap-3">
+                 <Cpu className="h-5 w-5 text-[#00FF88]" /> Versatilidade de Hardware (L1)
+               </h3>
+               <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-lg space-y-2 group hover:bg-white/10 transition-colors">
+                     <span className="text-[10px] text-[#00FF88] font-bold uppercase tracking-widest">Universal Adapter</span>
+                     <p className="text-[9px] text-white/40 uppercase">
+                       Integração nativa com **ESP32-S3** para captura de telemetria OBD-II sem modificação no veículo.
+                     </p>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 p-4 rounded-lg space-y-2 group hover:bg-white/10 transition-colors">
+                     <span className="text-[10px] text-[#00FF88] font-bold uppercase tracking-widest">Selo Digital (QR/IR)</span>
+                     <p className="text-[9px] text-white/40 uppercase">
+                       Transmissão de status pericial via infravermelho e QR Code para fiscalização não-intrusiva.
+                     </p>
+                  </div>
+               </div>
+            </div>
             
             <div className="grid grid-cols-3 gap-8 pt-8 opacity-40">
                <div className="space-y-2">

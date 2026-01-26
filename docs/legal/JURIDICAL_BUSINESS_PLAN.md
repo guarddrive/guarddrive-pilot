@@ -8,16 +8,16 @@ O GuardDrive resolve o maior gargalo jurídico da mobilidade moderna: a **contes
 - **Inadmissibilidade**: Juízes frequentemente descartam logs de software proprietários por falta de garantia de cadeia de custódia.
 - **Custos**: Seguradoras perdem bilhões em fraudes inerciais que não podem ser provadas tecnicamente com rigor pericial.
 
-## 3. A Solução: Protocolo L1 Core (Chain-of-Custody-as-a-Service)
+## 3. A Solução: Protocolo L1 Core e Identidade Híbrida (V2D)
 A GuardDrive oferece uma infraestrutura de suporte ao contencioso e ao preventivo:
-- **Assinatura em Hardware (HSM)**: A prova nasce imutável. Não há manipulação em trânsito.
-- **Laudo Forense Automatizado**: O sistema gera laudos periciais prontos para submissão judicial, assinados localmente pelo veículo.
-- **Ponderação Ética SEVE**: Explicabilidade algorítmica que fundamenta decisões de IA perante tribunais.
+- **Identidade Híbrida Veículo-Motorista**: O protocolo cria um vínculo criptográfico (DID) entre a máquina e o humano. Em caso de infração ou sinistro, o sistema prova *quem* estava no comando com precisão biométrica e inercial.
+- **Assinatura em Hardware (ESP32-S3)**: A prova nasce imutável. Utilizando hardware de baixo custo integrado ao **OBD-II**, capturamos o "DNA do Incidente" (pressão de freio, RPM, falhas de sistema).
+- **Selos Digitais de Admissibilidade (QR/IR)**: O status pericial do veículo pode ser lido fisicamente via selos ópticos, facilitando a fiscalização imediata sem depender de infraestrutura de nuvem.
 
-## 4. Modelo de Negócio Jurídico-Econômico
-- **Serviço de Assistência Técnica (B2B)**: Escritórios jurídicos podem utilizar o console GuardDrive como "Perito Digital" em tempo real para frotistas.
-- **Behaviour-as-a-Token (BaaT)**: Ativos digitais (GST) emitidos baseados no rigor operacional. Esses ativos servem como "Certificados de Boa Conduta" auditáveis, reduzindo prêmios de seguro e aumentando o valor de revenda de frotas.
-- **Royalties de IP Lockdown**: Licenciamento do motor de validação para fabricantes de hardware automotivo.
+## 4. O Ativo de Integridade Profissional (BaaT)
+- **Monetização de Rigor**: O perfilamento profundo via OBD-II permite a criação de um "Currículo de Condução" inquestionável.
+- **Seguro Dinâmico e Meritocrático**: Escritórios podem negociar apólices coletivas baseadas nos **Tokens GST** acumulados pelos motoristas da frota jurídica cliente.
+- **Royalties de IP Lockdown**: Licenciamento do motor de validação.
 
 ## 5. Alinhamento Normativo (Themis Audit)
 - **Brasil**: Conformidade total com o Art. 158-A do CPP (Cadeia de Custódia) e LGPD (Anonimização via Hash).
