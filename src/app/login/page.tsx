@@ -55,10 +55,10 @@ export default function LoginPage() {
               <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-[#00FF88] transition-colors" />
               <input
                 type="password"
-                placeholder="ENTER MASTER TOKEN"
+                placeholder="NÍVEL DE ACESSO: CREDENCIAL DE ENGENHARIA"
                 value={token}
                 onChange={(e) => setToken(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-sm font-mono focus:outline-none focus:border-[#00FF88]/50 focus:ring-1 focus:ring-[#00FF88]/50 transition-all placeholder:text-white/20"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-12 py-4 text-[10px] font-mono focus:outline-none focus:border-[#00FF88]/50 focus:ring-1 focus:ring-[#00FF88]/50 transition-all placeholder:text-white/20 uppercase tracking-widest"
                 autoFocus
               />
             </div>
@@ -68,7 +68,7 @@ export default function LoginPage() {
                 animate={{ opacity: 1, x: 0 }}
                 className="text-red-500 text-[10px] uppercase font-mono tracking-tighter"
               >
-                Invalid access token. Handshake failed.
+                Falha na validação de integridade. Handshake negado.
               </motion.p>
             )}
           </div>
@@ -76,13 +76,13 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={status === "verifying"}
-            className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[#00FF88] transition-all group disabled:opacity-50"
+            className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-[#00FF88] transition-all group disabled:opacity-50 text-[10px] tracking-[0.2em]"
           >
             {status === "verifying" ? (
               <Loader2 className="h-4 w-4 animate-spin" />
             ) : (
               <>
-                SUBMIT CREDENTIALS
+                EFETUAR HANDSHAKE DE SEGURANÇA
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </>
             )}

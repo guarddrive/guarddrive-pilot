@@ -58,11 +58,12 @@ export default function LandingPage() {
         >
           <div className="space-y-6">
             <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
-              Sovereignty <br />
-              <span className="text-white/20">Through Intelligence</span>
+              Soberania <br />
+              <span className="text-white/20">por meio da Inteligência</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground font-mono uppercase tracking-widest max-w-2xl mx-auto leading-relaxed">
-              Establishing the high-confidence infrastructure for autonomous and regenerative mobility.
+            <p className="text-sm md:text-base text-muted-foreground font-mono uppercase tracking-[0.3em] max-w-3xl mx-auto leading-relaxed">
+              Estabelecendo a infraestrutura de alta confiança <br className="hidden md:block" /> 
+              para mobilidade autônoma e regenerativa.
             </p>
           </div>
 
@@ -70,13 +71,13 @@ export default function LandingPage() {
 
           <div className="text-left max-w-2xl mx-auto space-y-8 py-12 bg-[#0E0E10]/40 backdrop-blur-sm p-8 rounded-2xl border border-white/5 shadow-2xl">
             <p className="text-sm md:text-base leading-relaxed text-muted-foreground italic">
-              "We believe that trust shouldn't be a policy—it should be an unavoidable byproduct of code."
+              "Acreditamos que a confiança não deve ser uma política — deve ser um subproduto inevitável do código."
             </p>
             <div className="space-y-4">
-              <p className="text-xs md:text-sm leading-relaxed">
-                <span className="text-[#00FF88] font-bold uppercase tracking-tighter">GuardDrive</span> is the sovereign vertical for mobility forensics. 
-                Powered by the <span className="text-white font-bold underline decoration-[#00FF88] uppercase tracking-tighter">Symbeon Protocol</span>, we provide a solid foundation 
-                where every kilometer is auditably proven and ethically weighted.
+              <p className="text-xs md:text-sm leading-relaxed uppercase tracking-widest font-mono text-white/60">
+                <span className="text-[#00FF88] font-bold">GuardDrive</span> é o vertical soberano para perícia em mobilidade. 
+                Sob o protocolo <span className="text-white font-bold underline decoration-[#00FF88]">Symbeon</span>, consolidamos uma base sólida 
+                onde cada quilômetro é auditavelmente provado e eticamente ponderado.
               </p>
             </div>
           </div>
@@ -84,9 +85,9 @@ export default function LandingPage() {
           <div className="pt-8">
             <button 
               onClick={handleStart}
-              className="group relative flex items-center justify-center gap-4 bg-[#00FF88] text-black px-12 py-6 font-bold text-sm tracking-[0.2em] rounded-full hover:bg-white transition-all shadow-[0_0_50px_rgba(0,255,136,0.3)] hover:scale-105 active:scale-95"
+              className="group relative flex items-center justify-center gap-4 bg-[#00FF88] text-black px-12 py-6 font-bold text-[10px] tracking-[0.3em] rounded-full hover:bg-white transition-all shadow-[0_0_50px_rgba(0,255,136,0.3)] hover:scale-105 active:scale-95 uppercase"
             >
-              INITIALIZE ACCESS PROTOCOL
+              INICIAR PROTOCOLO DE ACESSO
               <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
