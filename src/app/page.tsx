@@ -90,8 +90,8 @@ export default function LandingPage() {
           className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,255,65,0.1)] mb-16 group"
         >
           <Image 
-            src="/assets/hero_portal.png" 
-            alt="GuardDrive Hero Portal" 
+            src="/brand/hero_banner.png" 
+            alt="GuardDrive Hero Banner" 
             fill 
             className="object-cover transition-transform duration-700 group-hover:scale-105"
             priority
