@@ -1,13 +1,11 @@
-# 🦅 GuardDrive: Soberania em Perícia Veicular Inviolável
+# 🦅 GuardDrive: A Primeira Camada de Validação Forense Descentralizada
 
-> **Infraestrutura Crítica para Segurança Urbana e Governança de Smart Cities**
+> **Para veículos autônomos e conectados.**
 
-![GuardDrive Sovereign Infrastructure](file:///C:/Users/João/.gemini/antigravity/brain/0b88ccb3-bd1c-4e6d-ad2e-b7b4b5134d9e/guarddrive_pilot_hero_v43_1769447569343.png)
+![GuardDrive Sovereign Infrastructure](/p/guarddrive_pilot_hero_v43_1769447569343.png)
 
 ## 👁️ A Visão
-O **GuardDrive** é um projeto de inovação biocibernética desenhado para transmutar a telemetria veicular padrão em um fluxo absoluto e criptograficamente assinado de evidências periciais. 
-
-Ao fundir **IoT Edge Computing** com **Arquitetura de Cadeia de Custódia L1**, o GuardDrive cria uma "Testemunha Digital" imutável para cada veículo, garantindo soberania de dados para condutores, verdade para autoridades e integridade absoluta para seguradoras.
+O **GuardDrive** estabelece o padrão ouro para perícia veicular em ambientes descentralizados. Desenvolvido para transmutar a telemetria legada em um fluxo absoluto de evidências criptográficas, o sistema garante que cada metro percorrido seja auditável, imutável e soberano.
 
 ---
 

@@ -102,14 +102,14 @@ export default function LandingPage() {
               Sovereign Infrastructure Protocol
             </motion.div>
 
-            <h1 className="text-7xl md:text-[10rem] font-black tracking-tighter uppercase leading-[0.85] select-none">
-              Soberania <br />
-              <span className="text-white/10 stroke-text">pela Inteligência</span>
+            <h1 className="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9] select-none">
+              A primeira camada de <br />
+              <span className="text-[#00FF88]">Validação Forense</span> <br />
+              <span className="text-white/10 stroke-text italic">Descentralizada</span>
             </h1>
 
-            <p className="text-sm md:text-xl text-white/40 font-mono uppercase tracking-[0.5em] max-w-4xl mx-auto leading-relaxed">
-              Consolidando a infraestrutura de confiança <br className="hidden md:block" /> 
-              para a mobilidade autônoma global.
+            <p className="text-sm md:text-base text-white/40 font-mono uppercase tracking-[0.5em] max-w-4xl mx-auto leading-relaxed">
+              Para veículos autônomos e conectados.
             </p>
           </div>
 
@@ -178,17 +178,28 @@ export default function LandingPage() {
             initial={{ opacity: 0, scale: 0.9, rotateY: 30 }}
             whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
             viewport={{ once: true }}
-            className="relative aspect-square rounded-3xl overflow-hidden border border-white/5 bg-gradient-to-br from-white/5 to-transparent backdrop-blur-3xl group"
+            className="relative aspect-square rounded-3xl overflow-hidden border border-white/5 bg-zinc-900 group shadow-2xl"
           >
-             <div className="absolute inset-0 bg-[#00FF88]/5 group-hover:bg-[#00FF88]/10 transition-colors" />
-             <div className="absolute inset-12 border border-[#00FF88]/20 flex items-center justify-center">
-                <Shield className="h-24 w-24 text-[#00FF88] opacity-20 group-hover:opacity-100 transition-all group-hover:scale-110 duration-700" />
-             </div>
+             <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] to-transparent z-10 opacity-60" />
+             <img 
+               src="/assets/smart_city.png" 
+               alt="Sovereign Architecture"
+               className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+             />
+             
              {/* Decorative HUD Elements */}
-             <div className="absolute top-8 left-8 text-[8px] font-mono text-[#00FF88]/40 space-y-2 uppercase tracking-tighter">
-                <div>SYSTEM_STATUS: NOMINAL</div>
+             <div className="absolute top-8 left-8 z-20 text-[8px] font-mono text-[#00FF88] space-y-2 uppercase tracking-tighter bg-black/60 backdrop-blur-md p-3 border border-[#00FF88]/20 rounded">
+                <div className="flex items-center gap-2">
+                  <div className="w-1 h-1 rounded-full bg-[#00FF88] animate-pulse" />
+                  SYSTEM_STATUS: NOMINAL
+                </div>
                 <div>ENCRYPTION_LAYER: ACTIVE</div>
                 <div>GEO_SYNC: SALVADOR_LIVING_LAB</div>
+             </div>
+             
+             <div className="absolute bottom-8 right-8 z-20 flex items-center gap-3 bg-black/80 backdrop-blur-md px-4 py-2 border border-white/10 rounded-full">
+                <Shield className="h-4 w-4 text-[#00FF88]" />
+                <span className="text-[10px] font-bold text-white uppercase tracking-widest">Validated_by_L1</span>
              </div>
           </motion.div>
         </div>
