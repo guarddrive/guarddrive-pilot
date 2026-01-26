@@ -1,62 +1,53 @@
-# 🚔 GuardDrive: Inviolable Vehicle Forensics
+# 🦅 GuardDrive: Soberania em Perícia Veicular Inviolável
 
-> **Sovereign Infrastructure for Urban Security & Smart City Governance**
+> **Infraestrutura Crítica para Segurança Urbana e Governança de Smart Cities**
 
-![GuardDrive Smart City Context](public/assets/smart_city.png)
+![GuardDrive Sovereign Infrastructure](file:///C:/Users/João/.gemini/antigravity/brain/0b88ccb3-bd1c-4e6d-ad2e-b7b4b5134d9e/guarddrive_pilot_hero_v43_1769447569343.png)
 
-## 👁️ The Vision
-**GuardDrive** is a biocybernetic innovation project designed to transform standard vehicle telemetry into an absolute, cryptographically signed stream of forensic evidence. 
+## 👁️ A Visão
+O **GuardDrive** é um projeto de inovação biocibernética desenhado para transmutar a telemetria veicular padrão em um fluxo absoluto e criptograficamente assinado de evidências periciais. 
 
-By merging **IoT Edge Computing** with **Hybrid Blockchain Architecture**, GuardDrive creates an immutable "Digital Witness" for every vehicle, ensuring transparency for drivers, truth for authorities, and high-fidelity data for insurers.
-
----
-
-## ⚡ Core Pillars (Trinity Protocol)
-
-### 1. Forensic Telemetry (OPPORTUNITY)
-Real-time tracking of speed, G-force, and inertial patterns. Unlike standard trackers, GuardDrive detects impact vectors and collision angles with scientific precision.
-
-### 2. IP Lockdown (VALIDATION)
-All telemetry data is signed locally via a **Secure Element (STM32)** before transmission. This ensures that the data remains sovereign and untamperable even if the communication network is compromised.
-
-### 3. Smart City Infrastructure (AUTHORITY)
-Featuring a dynamic **E-ink QR Display** and **Infrared Status LEDs**, GuardDrive allows traffic authorities and smart city towers to scan a vehicle's "Identity NFT" and insurance status in real-time, 24/7.
+Ao fundir **IoT Edge Computing** com **Arquitetura de Cadeia de Custódia L1**, o GuardDrive cria uma "Testemunha Digital" imutável para cada veículo, garantindo soberania de dados para condutores, verdade para autoridades e integridade absoluta para seguradoras.
 
 ---
 
-## 🎨 Visual Identity
+## ⚡ Pilares de Rigor (Protocolo Trinity)
 
-| **Forensic View Dashboard** | **Edge Device Concept** |
-| :---: | :---: |
-| ![Dashboard Mockup](public/assets/dashboard.png) | ![Hardware Mockup](public/assets/edge_device.png) |
+### 1. Telemetria Pericial (CAMADA_LOG)
+Monitoramento em tempo real de velocidade, força-G e padrões inerciais. Diferente de rastreadores padrão, o GuardDrive detecta vetores de impacto e ângulos de colisão com precisão científica e rigor pericial.
 
+### 2. IP Lockdown (VALIDAÇÃO_L1)
+Todos os dados são assinados localmente via **Secure Element (Hardware Root of Trust)** antes da transmissão. Isso garante que a informação permaneça íntegra e soberana, mesmo sob compromisso de rede.
+
+### 3. Infraestrutura de Smart City (AUTORIDADE)
+Equipado com **Digital Twin Integration** e protocolos de comunicação V2X, o GuardDrive permite que torres de controle e autoridades verifiquem o "Status de Rigor" do veículo em tempo real, 24/7.
 
 ---
 
-## 🛠️ Tech Stack
-- **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
-- **Styling**: TailwindCSS (Biocybernetic Theme)
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Core Protocol**: Symbeon L1 Architecture
 
-## 🚀 Getting Started
+## 🛠️ Stack Tecnológica
+- **Framework**: [Next.js 16](https://nextjs.org/) (Turbopack)
+- **Engine de Animação**: Framer Motion (Parallax Imersivo)
+- **Processamento de Dados**: Protocolo Proprietário L1/L3
+- **Geospatial**: Leaflet Core Digital Twin
+
+## 🚀 Inicialização Técnica
 
 ```bash
-# Clone the repository
+# Clonar o repositório de engenharia
 git clone https://github.com/th3m1s-core/guarddrive-pilot.git
 
-# Install dependencies
+# Instalar dependências de rigor
 npm install
 
-# Run the Simulator
+# Iniciar o Simulador de Twin Digital
 npm run dev
 ```
 
 ---
 
-## ⚖️ Governance
-This project is part of the **TrinityOS Ecosystem** and follows the **IP Lockdown Governance** rules. All proprietary logic related to the Symbeon Validator remains in Layer 1.
+## ⚖️ Governança e Sigilo
+Este projeto integra o **Ecossistema TrinityOS** e segue as normas de **IP Lockdown**. Toda a lógica algorítmica proprietária referente ao Validador de Camada 1 permanece em sigilo estratégico (Stealth Mode).
 
-**Project Lead**: [João / SH1W4](https://github.com/SH1W4)  
-**Status**: `ORBITAL_LAUNCH` (Pilot Phase)
+**Liderança Técnica**: [João / SH1W4](https://github.com/SH1W4)  
+**Status**: `ORBITAL_LAUNCH` (Pilot V4.3 - Advanced Engineering)
