@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from "react";
 import { useScroll, useTransform, motion, AnimatePresence } from "framer-motion";
 import { Shield, Zap, Lock, ArrowRight, Gavel, Loader2, Cpu, Globe, ChevronDown } from "lucide-react";
