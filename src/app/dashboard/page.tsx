@@ -9,6 +9,7 @@ import { useState } from "react";
 import SEVEGovernance from "@/components/dashboard/SEVEGovernance";
 import ESGPerformance from "@/components/dashboard/ESGPerformance";
 import NeuralPulse from "@/components/ui/NeuralPulse";
+import OnboardingTutorial from "@/components/dashboard/OnboardingTutorial";
 import dynamic from "next/dynamic";
 
 // Dynamic import for the map to prevent SSR issues with Leaflet
@@ -34,6 +35,7 @@ export default function PilotDashboard() {
   return (
     <div className="min-h-screen bg-[#0E0E10] text-[#F3F3F3] p-8 font-mono matrix-grid relative overflow-hidden selection:bg-[#00FF88] selection:text-black">
       <NeuralPulse />
+      <OnboardingTutorial />
       
       {/* Header / Command Utility */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-white/10 pb-6 gap-6">
@@ -49,7 +51,7 @@ export default function PilotDashboard() {
           </div>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-3" id="city-selector-ui">
           <div className="flex bg-white/5 p-1 rounded-lg border border-white/10">
             {["ba-ssa-01", "ba-fsa-01", "ba-ldf-01"].map((lab) => (
               <button
@@ -107,7 +109,7 @@ export default function PilotDashboard() {
 
       {/* High-Density Metric Grid */}
       <div className="grid grid-cols-12 gap-6 mb-8 uppercase text-[10px] tracking-widest">
-        <div className="col-span-12 md:col-span-5 bg-white/5 border border-white/10 p-6 rounded-xl space-y-4">
+        <div id="pilot-validation-card" className="col-span-12 md:col-span-5 bg-white/5 border border-white/10 p-6 rounded-xl space-y-4">
           <div className="flex justify-between items-center border-b border-white/5 pb-3">
              <h3 className="font-bold text-[#00FF88]">Pilot Validation Status</h3>
              <span className="text-[9px] px-2 py-0.5 bg-[#00FF88]/10 text-[#00FF88] rounded border border-[#00FF88]/20">TRL 6 → TRL 7 READY</span>
@@ -214,7 +216,7 @@ export default function PilotDashboard() {
 
          {/* Center Column: Cognitive Layer */}
          <div className="col-span-12 md:col-span-4 space-y-6">
-            <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+            <div id="seve-govern-panel" className="bg-white/5 border border-white/10 p-6 rounded-xl">
               <SEVEGovernance weights={data.seveWeights} />
             </div>
             <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
@@ -223,7 +225,7 @@ export default function PilotDashboard() {
          </div>
 
          {/* Evidence Log & Visualizer (Right Column) */}
-         <div className="col-span-12 md:col-span-4 flex flex-col h-full bg-white/5 border border-white/10 rounded-xl p-6 relative overflow-hidden">
+         <div id="evidence-log-panel" className="col-span-12 md:col-span-4 flex flex-col h-full bg-white/5 border border-white/10 rounded-xl p-6 relative overflow-hidden">
            <div className="flex justify-between items-center mb-6">
              <h2 className="text-[10px] font-bold flex items-center gap-3 tracking-[0.2em] uppercase">
                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
