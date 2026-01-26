@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils";
 import { Activity, Shield, AlertTriangle, MapPin, Zap, Lock, Loader2, Gavel, Info } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SEVEGovernance from "@/components/dashboard/SEVEGovernance";
-import ESGPerformance from "@/components/dashboard/ESGPerformance";
+import EconomicTerminal from "@/components/dashboard/EconomicTerminal";
 import NeuralPulse from "@/components/ui/NeuralPulse";
 import OnboardingTutorial from "@/components/dashboard/OnboardingTutorial";
 import dynamic from "next/dynamic";
@@ -24,6 +24,26 @@ export default function PilotDashboard() {
   const [selectedLab, setSelectedLab] = useState("ba-ssa-01");
   const [showRigor, setShowRigor] = useState(false);
   const [showL1Certificate, setShowL1Certificate] = useState(false);
+  const [gstBalance, setGstBalance] = useState(124.5502);
+  const [chaosMonkeyActive, setChaosMonkeyActive] = useState(false);
+
+  // Behavior-as-a-Token Accumulation Logic
+  useEffect(() => {
+    let interval: any;
+    if (isRunning && !isEmergency && !chaosMonkeyActive) {
+      interval = setInterval(() => {
+        setGstBalance(prev => prev + 0.0001);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [isRunning, isEmergency, chaosMonkeyActive]);
+
+  const toggleChaosMonkey = () => {
+    setChaosMonkeyActive(true);
+    setTimeout(() => {
+      setChaosMonkeyActive(false);
+    }, 4000);
+  };
 
   const validateEvent = async () => {
     setValidationState("AUDITING");
@@ -48,7 +68,11 @@ export default function PilotDashboard() {
           <div className="flex items-center gap-4 text-[9px] text-muted-foreground uppercase tracking-widest">
             <span className="flex items-center gap-1.5"><MapPin className="h-3 w-3" /> LIVING_LAB: {selectedLab}</span>
             <span className="text-white/20">|</span>
-            <span className="flex items-center gap-1.5 underline decoration-[#00FF88]/30">STK_VERSION: 4.0.2-SOVEREIGN</span>
+            <Link href="/roadmap" className="flex items-center gap-1.5 hover:text-[#00FF88] transition-colors group cursor-pointer underline decoration-[#00FF88]/30 underline-offset-4">
+              <Activity className="h-3 w-3" /> VIEW_TRL_ROADMAP
+            </Link>
+            <span className="text-white/20">|</span>
+            <span className="flex items-center gap-1.5 opacity-40">STK_VERSION: 4.4.0-ECONOMY</span>
           </div>
         </div>
 
@@ -91,6 +115,17 @@ export default function PilotDashboard() {
             className="px-4 py-1 bg-red-500/10 border border-red-500/30 text-red-500 text-[10px] uppercase font-bold hover:bg-red-500/20 transition-all disabled:opacity-30"
           >
             SIMULATE_CRASH
+          </button>
+
+          <button 
+            onClick={toggleChaosMonkey}
+            disabled={chaosMonkeyActive}
+            className={cn(
+               "px-4 py-1 border text-[10px] uppercase font-bold transition-all",
+               chaosMonkeyActive ? "bg-amber-500 text-black border-amber-500 animate-pulse" : "bg-amber-500/10 border-amber-500/30 text-amber-500 hover:bg-amber-500/20"
+            )}
+          >
+            {chaosMonkeyActive ? "[ ATTACK_IN_PROGRESS ]" : "CHAOS_MONKEY"}
           </button>
         </div>
       </div>
@@ -183,20 +218,37 @@ export default function PilotDashboard() {
         {/* Real-time Metrics */}
         <div className="col-span-12 md:col-span-4 space-y-6">
            {/* High-Density Metric Card */}
-           <div className="bg-white/5 border border-white/10 p-6 rounded-xl relative overflow-hidden group">
+           <div className={cn(
+             "bg-white/5 border border-white/10 p-6 rounded-xl relative overflow-hidden group transition-all duration-500",
+             chaosMonkeyActive && "border-amber-500/50 shadow-[0_0_40px_rgba(245,158,11,0.1)]"
+           )}>
              <div className="flex justify-between items-start mb-6">
-               <span className="text-[9px] text-white/30 tracking-[0.3em]">TELEMETRY_ENGINE // VINT_0.4</span>
+               <div className="flex flex-col gap-2">
+                 <span className="text-[9px] text-white/30 tracking-[0.3em]">TELEMETRY_ENGINE // VINT_0.4</span>
+                 <div className="flex items-center gap-2 px-2 py-0.5 bg-black/40 border border-white/5 rounded text-[7px] text-white/40 font-black uppercase tracking-widest">
+                    <div className={cn("w-1 h-1 rounded-full animate-pulse", chaosMonkeyActive ? "bg-amber-500 shadow-[0_0_10px_rgba(245,158,11,0.5)]" : "bg-[#00FF88] shadow-[0_0_10px_rgba(0,255,136,0.3)]")} />
+                    {chaosMonkeyActive ? "MITIGATING_ATTACK" : "HSM_LINK_STABLE"}
+                 </div>
+               </div>
                <Activity className="h-4 w-4 text-[#00FF88] opacity-30" />
              </div>
              
-             <div className="grid grid-cols-2 gap-8 mb-6">
-               <div className="space-y-1">
+             <div className="grid grid-cols-2 gap-8 mb-6 relative overflow-hidden">
+               {chaosMonkeyActive && (
+                 <motion.div 
+                   initial={{ y: "-100%" }}
+                   animate={{ y: "100%" }}
+                   transition={{ duration: 0.2, repeat: Infinity, ease: "linear" }}
+                   className="absolute inset-0 bg-amber-500/10 z-10 pointer-events-none border-y border-amber-500/50"
+                 />
+               )}
+               <div className={cn("space-y-1 transition-all", chaosMonkeyActive && "blur-[1px] opacity-70")}>
                  <span className="text-[8px] text-white/20 block">VELOCITY</span>
                  <div className="text-4xl font-bold font-mono text-[#00FF88] tabular-nums">
                    {data.speed.toFixed(0)}<span className="text-xs text-white/30 ml-1">KM/H</span>
                  </div>
                </div>
-               <div className="space-y-1 text-right">
+               <div className={cn("space-y-1 text-right transition-all", chaosMonkeyActive && "blur-[1px] opacity-70")}>
                  <span className="text-[8px] text-white/20 block">G_FORCE</span>
                  <div className={cn(
                    "text-4xl font-bold font-mono tabular-nums",
@@ -239,8 +291,9 @@ export default function PilotDashboard() {
             <div id="seve-govern-panel" className="bg-white/5 border border-white/10 p-6 rounded-xl">
               <SEVEGovernance weights={data.seveWeights} />
             </div>
-            <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
-              <ESGPerformance metrics={data.esgMetrics} />
+            <div className="bg-white/5 border border-white/10 p-6 rounded-xl overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#00FF88]/5 blur-3xl rounded-full" />
+              <EconomicTerminal gstBalance={gstBalance} isEmergency={isEmergency} />
             </div>
          </div>
 
@@ -283,20 +336,25 @@ export default function PilotDashboard() {
               </div>
            </div>
 
-           <div className="mt-6 pt-4 border-t border-white/5 flex flex-col gap-4">
+           <div className="mt-6 pt-4 border-t border-white/5 flex flex-col gap-6">
               <div className="flex justify-between items-end">
                 <div className="space-y-1">
-                  <span className="text-[8px] text-white/20 block font-bold">LATENCY_MS</span>
-                  <span className="text-[10px] font-mono text-[#00FF88]">00.12.44</span>
+                  <span className="text-[8px] text-white/20 block font-bold uppercase tracking-widest leading-none">Acurácia_L1</span>
+                  <span className="text-[10px] font-mono text-[#00FF88]">99.982%</span>
                 </div>
                 <div className="space-y-1 text-right">
-                  <span className="text-[8px] text-white/20 block font-bold">IP_STATUS</span>
-                  <span className="text-[10px] font-mono text-[#00FF88]">SOVEREIGN_LOCK</span>
+                  <span className="text-[8px] text-white/20 block font-bold uppercase tracking-widest leading-none">Trust_Gate</span>
+                  <span className="text-[10px] font-mono text-[#00FF88]">BLINDADO</span>
                 </div>
               </div>
-              <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                <motion.div animate={{ x: ["-100%", "300%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="w-1/3 h-full bg-gradient-to-r from-transparent via-[#00FF88] to-transparent" />
-              </div>
+              
+              <button 
+                onClick={() => setShowL1Certificate(true)}
+                className="w-full group bg-[#00FF88] hover:bg-white text-black py-4 rounded-lg flex items-center justify-center gap-3 transition-all active:scale-[0.98] shadow-[0_0_30px_rgba(0,255,136,0.2)]"
+              >
+                <Gavel className="h-4 w-4" />
+                <span className="text-[10px] font-black uppercase tracking-[0.2em]">Emitir Laudo de Juricidade</span>
+              </button>
            </div>
         </div>
 
