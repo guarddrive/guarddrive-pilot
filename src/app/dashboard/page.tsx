@@ -21,10 +21,10 @@ export default function PilotDashboard() {
   const { data, isRunning, setIsRunning, triggerCollision, isEmergency } = useDigitalTwin();
   const [validationState, setValidationState] = useState<"IDLE" | "AUDITING" | "VERIFIED" | "NON_COMPLIANT">("IDLE");
   const [showCertificate, setShowCertificate] = useState(false);
+  const [selectedLab, setSelectedLab] = useState("ba-ssa-01");
 
   const validateEvent = async () => {
     setValidationState("AUDITING");
-    // Connect to Themis/Symbeon Engine (Simulated Latency)
     setTimeout(() => {
       const isCompliant = data.gForce < 8.0; 
       setValidationState(isCompliant ? "VERIFIED" : "NON_COMPLIANT");
@@ -32,264 +32,249 @@ export default function PilotDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-void text-foreground p-8 font-mono matrix-grid relative overflow-hidden">
+    <div className="min-h-screen bg-[#0E0E10] text-[#F3F3F3] p-8 font-mono matrix-grid relative overflow-hidden selection:bg-[#00FF88] selection:text-black">
       <NeuralPulse />
-      {/* Header */}
-      <div className="flex justify-between items-center mb-8 border-b border-bio-green/20 pb-4">
-        <div>
-          <h1 className="text-2xl font-bold flex items-center gap-2">
-            <Shield className="text-bio-green h-6 w-6" />
-            GUARDDRIVE // SEVE-SYMBEON INTEGRATED STACK
+      
+      {/* Header / Command Utility */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-white/10 pb-6 gap-6">
+        <div className="space-y-1">
+          <h1 className="text-xl font-black flex items-center gap-3 tracking-tighter">
+            <Shield className="text-[#00FF88] h-5 w-5" />
+            GUARDDRIVE // PILOT CONTROL
           </h1>
-          <p className="text-xs text-muted-foreground tracking-[0.2em]">NODE-BA-SSA-01 // COGNITIVE_FORENSICS_V2.0</p>
-        </div>
-        <div className="flex items-center gap-4">
-           <Link 
-             href="/docs"
-             className="text-[10px] text-bio-green/60 hover:text-bio-green transition-colors border-b border-bio-green/20"
-           >
-             [ VIEW KNOWLEDGE BASE ]
-           </Link>
-             <div className="flex items-center gap-4">
-                <button 
-                  onClick={validateEvent}
-                  disabled={validationState === "AUDITING"}
-                  className={cn(
-                    "text-[10px] px-4 py-1 border transition-all flex items-center gap-2",
-                    validationState === "IDLE" && "border-white/20 text-white/40 hover:border-bio-green hover:text-bio-green",
-                    validationState === "AUDITING" && "border-blue-500 text-blue-500 animate-pulse",
-                    validationState === "VERIFIED" && "border-bio-green text-bio-green bg-bio-green/5 font-bold",
-                    validationState === "NON_COMPLIANT" && "border-red-500 text-red-500 bg-red-500/10 font-bold"
-                  )}
-                >
-                  {validationState === "AUDITING" && <Loader2 className="h-3 w-3 animate-spin" />}
-                  {validationState === "IDLE" && "[ VALIDATE FORENSIC CHAIN ]"}
-                  {validationState === "AUDITING" && "[ THEMIS_AUDITING... ]"}
-                  {validationState === "VERIFIED" && "✓ CHAIN_OF_CUSTODY: VALID"}
-                  {validationState === "NON_COMPLIANT" && "!! ERROR: FORENSIC_CONFLICT"}
-                </button>
-
-                {validationState === "VERIFIED" && (
-                  <button 
-                    onClick={() => setShowCertificate(true)}
-                    className="text-[10px] px-3 py-1 bg-bio-green text-black font-bold animate-bounce shadow-[0_0_10px_rgba(0,255,65,0.5)]"
-                  >
-                    DOWNLOAD_CERTIFICATE.PDF
-                  </button>
-                )}
-
-
-                <div className={cn(
-                  "px-4 py-1 rounded-full border text-[10px] animate-pulse whitespace-nowrap",
-                  data.jammerStatus === "CLEAN" ? "border-bio-green text-bio-green" : "border-red-500 text-red-500 bg-red-500/10"
-                )}>
-                  {data.jammerStatus === "CLEAN" ? "SIG-STEALTH: HIGH" : "JAMMER DETECTED"}
-                </div>
-                <button 
-                  onClick={() => setIsRunning(!isRunning)}
-                  className="bg-bio-green/10 border border-bio-green/30 px-4 py-1 text-xs hover:bg-bio-green/20 transition-colors whitespace-nowrap"
-                >
-                  {isRunning ? "[ STOP TWIN ]" : "[ SYNC TWIN ]"}
-                </button>
-                <button 
-                  onClick={triggerCollision}
-                  disabled={isEmergency}
-                  className="bg-red-500/20 border border-red-500/50 px-4 py-1 text-xs hover:bg-red-500/40 text-red-500 transition-colors whitespace-nowrap font-bold"
-                >
-                  [ SIMULATE_CRASH ]
-                </button>
-             </div>
+          <div className="flex items-center gap-4 text-[9px] text-muted-foreground uppercase tracking-widest">
+            <span className="flex items-center gap-1.5"><MapPin className="h-3 w-3" /> LIVING_LAB: {selectedLab}</span>
+            <span className="text-white/20">|</span>
+            <span className="flex items-center gap-1.5 underline decoration-[#00FF88]/30">STK_VERSION: 4.0.2-SOVEREIGN</span>
           </div>
         </div>
 
-          <AnimatePresence>
-            {validationState === "AUDITING" && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: "auto" }}
-                exit={{ opacity: 0, height: 0 }}
-                className="mb-8 p-4 bg-blue-500/5 border border-blue-500/20 rounded grid grid-cols-4 gap-4 overflow-hidden"
+        <div className="flex flex-wrap gap-3">
+          <div className="flex bg-white/5 p-1 rounded-lg border border-white/10">
+            {["ba-ssa-01", "ba-fsa-01", "ba-ldf-01"].map((lab) => (
+              <button
+                key={lab}
+                onClick={() => setSelectedLab(lab)}
+                className={cn(
+                  "px-3 py-1 text-[9px] uppercase tracking-tighter transition-all rounded",
+                  selectedLab === lab ? "bg-[#00FF88] text-black font-bold" : "text-white/40 hover:text-white"
+                )}
               >
-                <div className="col-span-1 border-r border-blue-500/10">
-                  <span className="text-[8px] text-blue-400 block uppercase mb-1">Engine</span>
-                  <span className="text-[10px] text-white flex items-center gap-1"><Gavel className="h-3 w-3" /> THEMIS L3</span>
-                </div>
-                <div className="col-span-1 border-r border-blue-500/10">
-                  <span className="text-[8px] text-blue-400 block uppercase mb-1">Target Rule</span>
-                  <span className="text-[10px] text-white">IMU_VEC_PROBITY</span>
-                </div>
-                <div className="col-span-2">
-                  <span className="text-[8px] text-blue-400 block uppercase mb-1">Audit Status</span>
-                  <div className="flex items-center gap-2">
-                    <div className="flex-1 h-[2px] bg-blue-500/20 relative">
-                       <motion.div 
-                         initial={{ width: 0 }} 
-                         animate={{ width: "100%" }} 
-                         transition={{ duration: 1.8 }}
-                         className="h-full bg-blue-500" 
-                       />
-                    </div>
-                    <span className="text-[9px] text-blue-400 animate-pulse">SCAN_ACTIVE</span>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                {lab.split("-")[1].toUpperCase()}
+              </button>
+            ))}
+          </div>
+          
+          <button 
+            onClick={() => setIsRunning(!isRunning)}
+            className="px-4 py-1 border border-white/10 text-[10px] uppercase hover:bg-white/5 transition-all"
+          >
+            {isRunning ? "[ BREAK_SYNC ]" : "[ SYNC_TWIN ]"}
+          </button>
+          
+          <button 
+            onClick={triggerCollision}
+            disabled={isEmergency}
+            className="px-4 py-1 bg-red-500/10 border border-red-500/30 text-red-500 text-[10px] uppercase font-bold hover:bg-red-500/20 transition-all disabled:opacity-30"
+          >
+            SIMULATE_CRASH
+          </button>
+        </div>
+      </div>
+
+      {/* Validation Banner (Audit Mode) */}
+      <AnimatePresence>
+        {validationState === "AUDITING" && (
+          <motion.div 
+            initial={{ opacity: 0, scaleY: 0 }}
+            animate={{ opacity: 1, scaleY: 1 }}
+            exit={{ opacity: 0, scaleY: 0 }}
+            className="mb-8 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg flex items-center justify-between overflow-hidden"
+          >
+            <div className="flex items-center gap-4">
+              <Loader2 className="h-4 w-4 text-blue-500 animate-spin" />
+              <div className="space-y-0.5">
+                <span className="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Themis Audit Active</span>
+                <p className="text-[9px] text-white/50 uppercase">Validating L1 Evidence Integrity...</p>
+              </div>
+            </div>
+            <div className="w-48 h-1.5 bg-white/5 rounded-full overflow-hidden">
+               <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.8 }} className="h-full bg-blue-500" />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* High-Density Metric Grid */}
+      <div className="grid grid-cols-12 gap-6 mb-8 uppercase text-[10px] tracking-widest">
+        <div className="col-span-12 md:col-span-5 bg-white/5 border border-white/10 p-6 rounded-xl space-y-4">
+          <div className="flex justify-between items-center border-b border-white/5 pb-3">
+             <h3 className="font-bold text-[#00FF88]">Pilot Validation Status</h3>
+             <span className="text-[9px] px-2 py-0.5 bg-[#00FF88]/10 text-[#00FF88] rounded border border-[#00FF88]/20">TRL 6 → TRL 7 READY</span>
+          </div>
+          <div className="grid grid-cols-2 gap-y-4 gap-x-8 font-mono">
+            <div className="space-y-1">
+              <span className="text-white/30 text-[9px]">Vehicles Tested</span>
+              <div className="text-lg font-bold">50 UNITS</div>
+            </div>
+            <div className="space-y-1">
+              <span className="text-white/30 text-[9px]">Total Test Hours</span>
+              <div className="text-lg font-bold">500h</div>
+            </div>
+            <div className="space-y-1">
+              <span className="text-white/30 text-[9px]">Fraud Detection Rate</span>
+              <div className="text-lg font-bold text-[#00FF88]">93%</div>
+            </div>
+            <div className="space-y-1">
+              <span className="text-white/30 text-[9px]">Blockchain Events</span>
+              <div className="text-lg font-bold">12,847</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="col-span-12 md:col-span-7 bg-white/5 border border-white/10 p-6 rounded-xl space-y-4">
+          <h3 className="font-bold border-b border-white/5 pb-3">Socioeconomic Impact Projection (12M)</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12 font-mono">
+             <div className="flex justify-between items-end border-b border-white/5 pb-1">
+                <span className="text-white/30">Fraud Prevention Savings</span>
+                <span className="font-bold text-[#00FF88]">R$ 1.4M</span>
+             </div>
+             <div className="flex justify-between items-end border-b border-white/5 pb-1">
+                <span className="text-white/30">Carbon Offset Generated</span>
+                <span className="font-bold">2,502 KG</span>
+             </div>
+             <div className="flex justify-between items-end border-b border-white/5 pb-1">
+                <span className="text-white/30">Lives Protected (Incidents Prev.)</span>
+                <span className="font-bold">12</span>
+             </div>
+             <div className="flex justify-between items-end border-b border-white/5 pb-1">
+                <span className="text-white/30">Network ROI</span>
+                <span className="font-bold">2,258%</span>
+             </div>
+          </div>
+        </div>
+      </div>
 
       {/* Main Grid */}
       <div className="grid grid-cols-12 gap-6">
         
         {/* Real-time Metrics */}
         <div className="col-span-12 md:col-span-4 space-y-6">
-           {/* Speed Card */}
-           <div className="bg-bio-dark/20 border border-bio-green/30 p-6 rounded-lg relative overflow-hidden group">
-             <motion.div 
-               className="absolute top-0 left-0 w-full h-1 bg-bio-green shadow-[0_0_15px_rgba(0,255,65,0.5)]"
-               animate={{ x: ["-100%", "100%"] }}
-               transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-             />
-             <div className="flex justify-between items-start mb-4">
-               <span className="text-[10px] text-bio-green/50 tracking-widest">VINT_VELOCITY.BIN</span>
-               <Activity className="h-4 w-4 text-bio-green/50" />
+           {/* High-Density Metric Card */}
+           <div className="bg-white/5 border border-white/10 p-6 rounded-xl relative overflow-hidden group">
+             <div className="flex justify-between items-start mb-6">
+               <span className="text-[9px] text-white/30 tracking-[0.3em]">TELEMETRY_ENGINE // VINT_0.4</span>
+               <Activity className="h-4 w-4 text-[#00FF88] opacity-30" />
              </div>
-             <div className="text-6xl font-bold text-bio-green flex items-baseline gap-2 tabular-nums">
-               <motion.span
-                 key={data.speed}
-                 initial={{ opacity: 0.5 }}
-                 animate={{ opacity: 1 }}
-               >
-                 {data.speed.toFixed(0)}
-               </motion.span>
-               <span className="text-xl text-bio-green/50">KM/H</span>
+             
+             <div className="grid grid-cols-2 gap-8 mb-6">
+               <div className="space-y-1">
+                 <span className="text-[8px] text-white/20 block">VELOCITY</span>
+                 <div className="text-4xl font-bold font-mono text-[#00FF88] tabular-nums">
+                   {data.speed.toFixed(0)}<span className="text-xs text-white/30 ml-1">KM/H</span>
+                 </div>
+               </div>
+               <div className="space-y-1 text-right">
+                 <span className="text-[8px] text-white/20 block">G_FORCE</span>
+                 <div className={cn(
+                   "text-4xl font-bold font-mono tabular-nums",
+                   data.gForce > 5 ? "text-red-500" : "text-white"
+                 )}>
+                   {data.gForce.toFixed(2)}<span className="text-xs text-white/30 ml-1">G</span>
+                 </div>
+               </div>
+             </div>
+
+             <div className="space-y-3 pt-4 border-t border-white/5">
+                <div className="flex justify-between items-center text-[9px] font-mono">
+                  <span className="text-white/40 italic">STABILIZATION_LOCK</span>
+                  <span className="text-[#00FF88]">TRUE</span>
+                </div>
+                <div className="flex justify-between items-center text-[9px] font-mono">
+                  <span className="text-white/40 italic">FRAME_RATE_HZ</span>
+                  <span className="text-white">60.00</span>
+                </div>
              </div>
            </div>
 
-           {/* G-Force Card */}
-           <div className={cn(
-             "border p-6 rounded-lg transition-all duration-500 overflow-hidden relative",
-             data.gForce > 5 ? "bg-red-500/20 border-red-500 shadow-[0_0_30px_rgba(239,68,68,0.4)]" : "bg-synth-deep/10 border-synth-purple/30"
-           )}>
-             {data.gForce > 5 && (
-               <motion.div 
-                 initial={{ opacity: 0 }}
-                 animate={{ opacity: [0, 1, 0] }}
-                 transition={{ repeat: Infinity, duration: 0.5 }}
-                 className="absolute inset-0 bg-red-500/5 pointer-events-none"
-               />
-             )}
-             <div className="flex justify-between items-start mb-4 relative z-10">
-               <span className="text-[10px] text-synth-purple/50 tracking-widest">IMU_G_FORCE.VEC</span>
-               {data.gForce > 5 && <AlertTriangle className="h-4 w-4 text-red-500 animate-bounce" />}
-             </div>
-             <div className="text-4xl font-bold text-white relative z-10 tabular-nums">
-               {data.gForce.toFixed(2)} G
-             </div>
-             <div className="mt-2 text-[10px] text-muted-foreground uppercase relative z-10">
-               {data.gForce > 8 ? "CRITICAL IMPACT DETECTED" : "Nominal Navigation"}
-             </div>
-           </div>
-
-           {/* Digital Twin Map Container */}
-           <div className="h-[250px] w-full relative mb-6">
-              <SalvadorMap 
-                vehiclePos={[data.lat, data.lng]} 
-                isEmergency={isEmergency || data.gForce > 5} 
-              />
-           </div>
-
-           {/* GPS Status */}
-           <div className="bg-card/30 border border-white/5 p-6 rounded-lg backdrop-blur-sm">
-             <div className="flex items-center gap-2 mb-4 text-[10px] text-muted-foreground tracking-widest">
-               <MapPin className="h-3 w-3" /> GEO_SPATIAL_SYNC
-             </div>
-             <div className="text-[11px] space-y-2 opacity-80">
-               <div className="flex justify-between border-b border-white/5 py-1">
-                 <span className="text-white/40">LAT</span><span className="text-bio-green tabular-nums font-mono">{data.lat.toFixed(6)}</span>
-               </div>
-               <div className="flex justify-between border-b border-white/5 py-1">
-                 <span className="text-white/40">LNG</span><span className="text-bio-green tabular-nums font-mono">{data.lng.toFixed(6)}</span>
-               </div>
-               <div className="flex items-center gap-2 text-[8px] text-zinc-500 mt-2">
-                 <Info className="h-2 w-2" /> DATA_SOURCE: SALVADOR_LIVING_LAB_TWIN
-               </div>
-             </div>
+           {/* Geospatial Twin Container */}
+           <div className="relative group">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#00FF88]/20 to-transparent rounded-xl blur opacity-30" />
+              <div className="relative h-[300px] w-full rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                <SalvadorMap 
+                  vehiclePos={[data.lat, data.lng]} 
+                  isEmergency={isEmergency || data.gForce > 5} 
+                />
+                <div className="absolute top-4 left-4 bg-[#0E0E10]/80 backdrop-blur-md px-3 py-1.5 border border-white/10 text-[9px] font-mono tracking-tighter">
+                   GPS_LOCK: {data.lat.toFixed(4)}, {data.lng.toFixed(4)}
+                </div>
+              </div>
            </div>
         </div>
 
          {/* Center Column: Cognitive Layer */}
          <div className="col-span-12 md:col-span-4 space-y-6">
-            <SEVEGovernance weights={data.seveWeights} />
-            <ESGPerformance metrics={data.esgMetrics} />
+            <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+              <SEVEGovernance weights={data.seveWeights} />
+            </div>
+            <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
+              <ESGPerformance metrics={data.esgMetrics} />
+            </div>
          </div>
 
          {/* Evidence Log & Visualizer (Right Column) */}
-         <div className="col-span-12 md:col-span-4 flex flex-col h-full bg-void/80 border border-white/5 rounded-lg p-6 backdrop-blur-xl relative overflow-hidden">
-           <div className="absolute top-0 right-0 p-4">
-              <Zap className="h-4 w-4 text-bio-green opacity-20 animate-pulse" />
-           </div>
-           
-           <div className="flex justify-between items-center mb-6 relative z-10">
-             <h2 className="text-sm font-bold flex items-center gap-2 leading-none">
-               <div className="w-1 h-4 bg-bio-green" />
-               CRYPTOGRAPHIC EVIDENCE STREAM
+         <div className="col-span-12 md:col-span-4 flex flex-col h-full bg-white/5 border border-white/10 rounded-xl p-6 relative overflow-hidden">
+           <div className="flex justify-between items-center mb-6">
+             <h2 className="text-[10px] font-bold flex items-center gap-3 tracking-[0.2em] uppercase">
+               <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
+               EVIDENCE_STREAM
              </h2>
-             <span className="text-[10px] text-bio-green/60 px-2 py-1 border border-bio-green/20 rounded">VALIDATOR_v1.0_ONLINE</span>
+             <span className="text-[8px] text-white/30 font-mono">VALIDATOR_v4.0</span>
            </div>
 
            <div className="flex-1 overflow-hidden relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-void z-20 pointer-events-none" />
-              <div className="space-y-2 font-mono text-[10px]">
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#0E0E10] to-transparent z-10 pointer-events-none" />
+              <div className="space-y-3 font-mono text-[9px]">
                   <AnimatePresence mode="popLayout">
                     <motion.div 
                       key={data.timestamp}
-                      initial={{ opacity: 0, x: -10, filter: "blur(4px)" }}
-                      animate={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="flex flex-col gap-1 border-l-2 border-bio-green pl-4 py-2 bg-bio-green/5 group hover:bg-bio-green/10 transition-colors"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      className="border-l-2 border-[#00FF88]/30 pl-4 py-2 group hover:bg-white/5 transition-colors"
                     >
-                       <div className="flex justify-between items-center">
-                         <span className="text-bio-green/40 font-mono">[{data.timestamp.split('T')[1].split('.')[0]}]</span>
-                         <motion.span 
-                           initial={{ opacity: 0 }}
-                           animate={{ opacity: 1 }}
-                           className="text-[9px] text-bio-green scale-75 origin-right font-bold"
-                         >
-                           // SYMBEON_SEAL_V2.0
-                         </motion.span>
+                       <div className="flex justify-between items-center mb-1">
+                         <span className="text-[#00FF88] font-bold">EVENT_0x{Math.random().toString(16).substring(2,6).toUpperCase()}</span>
+                         <span className="text-[8px] text-white/20">[{data.timestamp.split('T')[1].split('.')[0]}]</span>
                        </div>
-                       <div className="grid grid-cols-2 gap-2 text-[8px] uppercase">
-                         <div className="text-white/60">NODE: <span className="text-white">SSA-01</span></div>
-                         <div className="text-white/60 text-right">COORD: <span className="text-bio-green">{data.lat.toFixed(4)}, {data.lng.toFixed(4)}</span></div>
-                         <div className="text-white/60">ADAPT: <span className={cn(data.gForce > 5 ? "text-red-400" : "text-bio-green")}>{data.gForce > 5 ? "EMERGENCY" : "NOMINAL"}</span></div>
-                         <div className="text-bio-green/60 truncate text-right">SIG: {data.signature.split('-')[2]}</div>
+                       <div className="grid grid-cols-1 gap-1 text-white/50 leading-none">
+                         <div>NODE: SALVADOR_SSA_01</div>
+                         <div className="truncate">SIG: {data.signature.split('-')[1]}...{data.signature.split('-')[2]}</div>
                        </div>
                     </motion.div>
                   </AnimatePresence>
                   
-                  {/* Static Background Log Noise */}
-                  {Array.from({ length: 12 }).map((_, i) => (
-                    <div key={i} className="text-[9px] text-white/5 italic py-1 border-l border-white/5 pl-4 ml-[1px]">
-                      PROC_ENTRY_0x{Math.random().toString(16).substring(2,8).toUpperCase()} -- INERTIAL_FRAME_CAPTURED
+                  {Array.from({ length: 15 }).map((_, i) => (
+                    <div key={i} className="text-white/5 italic py-1 border-l border-white/5 pl-4 ml-[1px]">
+                      PROC_ENTRY_0x{Math.random().toString(16).substring(2,8).toUpperCase()} -- FRAME_CAPTURED
                     </div>
                   ))}
               </div>
            </div>
 
-           <div className="mt-6 pt-4 border-t border-white/5 flex justify-between items-center relative z-10">
-             <div className="flex gap-6">
-                <div className="flex flex-col">
-                  <span className="text-[8px] text-white/30 uppercase">Edge Sync</span>
-                  <span className="text-[10px] text-bio-green">12ms <span className="text-white/20">/ LOW</span></span>
+           <div className="mt-6 pt-4 border-t border-white/5 flex flex-col gap-4">
+              <div className="flex justify-between items-end">
+                <div className="space-y-1">
+                  <span className="text-[8px] text-white/20 block font-bold">LATENCY_MS</span>
+                  <span className="text-[10px] font-mono text-[#00FF88]">00.12.44</span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-[8px] text-white/30 uppercase">IP Status</span>
-                  <span className="text-[10px] text-bio-green">LOCKDOWN_ON</span>
+                <div className="space-y-1 text-right">
+                  <span className="text-[8px] text-white/20 block font-bold">IP_STATUS</span>
+                  <span className="text-[10px] font-mono text-[#00FF88]">SOVEREIGN_LOCK</span>
                 </div>
-             </div>
-             <div className="flex items-center gap-2 group cursor-help">
-               <div className="w-2 h-2 rounded-full bg-bio-green animate-ping" />
-               <span className="text-[9px] text-bio-green tracking-widest group-hover:opacity-100 opacity-60 transition-opacity">NODE_BA_SSA_SYNC</span>
-             </div>
+              </div>
+              <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                <motion.div animate={{ x: ["-100%", "300%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="w-1/3 h-full bg-gradient-to-r from-transparent via-[#00FF88] to-transparent" />
+              </div>
            </div>
         </div>
 
