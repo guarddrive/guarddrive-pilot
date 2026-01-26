@@ -20,6 +20,7 @@ const SalvadorMap = dynamic(() => import("@/components/dashboard/SalvadorMap"), 
 
 export default function PilotDashboard() {
   const { data, isRunning, setIsRunning, triggerCollision, isEmergency } = useDigitalTwin();
+  const [validationState, setValidationState] = useState<"IDLE" | "AUDITING" | "VERIFIED" | "NON_COMPLIANT">("IDLE");
   const [selectedLab, setSelectedLab] = useState("ba-ssa-01");
   const [showRigor, setShowRigor] = useState(false);
   const [showL1Certificate, setShowL1Certificate] = useState(false);
