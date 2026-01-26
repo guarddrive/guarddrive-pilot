@@ -8,159 +8,76 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Shield, Zap, Lock, ArrowRight, Gavel, Loader2, Cpu } from "lucide-react";
 
 export default function LandingPage() {
-  const [isHandshaking, setIsHandshaking] = useState(false);
   const router = useRouter();
 
-  const handleStart = async () => {
-    setIsHandshaking(true);
-    // Simulate Neural Handshake sequence
-    setTimeout(() => {
-      router.push("/dashboard");
-    }, 2500);
+  const handleStart = () => {
+    router.push("/login");
   };
 
   return (
-    <div className="min-h-screen bg-void text-foreground font-mono overflow-hidden relative">
-      {/* Background Matrix Grid */}
-      <div className="absolute inset-0 matrix-grid opacity-20 pointer-events-none" />
-
-      {/* Handshake Overlay */}
-      <AnimatePresence>
-        {isHandshaking && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-void/90 backdrop-blur-xl flex flex-col items-center justify-center p-6 text-center"
-          >
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              className="space-y-6 max-w-xs"
-            >
-              <Cpu className="h-12 w-12 text-bio-green mx-auto animate-spin" />
-              <div className="space-y-2">
-                <h3 className="text-bio-green font-bold tracking-widest uppercase">Initializing Handshake</h3>
-                <div className="flex flex-col gap-1 text-[10px] text-muted-foreground uppercase">
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>- Neural Link Established</motion.span>
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}>- Symbeon Validator Sync: 100%</motion.span>
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }}>- Secure Element Authorized</motion.span>
-                  <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.0 }} className="text-bio-green">-- Access Granted --</motion.span>
-                </div>
-              </div>
-              <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: 0 }} 
-                  animate={{ width: "100%" }} 
-                  transition={{ duration: 2.2 }}
-                  className="h-full bg-bio-green shadow-[0_0_10px_rgba(0,255,65,1)]" 
-                />
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+    <div className="min-h-screen bg-[#0E0E10] text-[#F3F3F3] font-sans selection:bg-[#00FF88] selection:text-black overflow-hidden relative">
+      <div className="absolute inset-0 matrix-grid opacity-10 pointer-events-none" />
 
       {/* Hero Section */}
-      <main className="relative z-10 container mx-auto px-6 pt-20 pb-32 flex flex-col items-center text-center text-balance">
+      <main className="relative z-10 container mx-auto px-6 pt-32 pb-32 flex flex-col items-center text-center">
         
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-8"
+          className="max-w-4xl space-y-12"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-bio-green/30 bg-bio-green/5 text-bio-green text-[10px] tracking-widest uppercase mb-6">
-            <Zap className="h-3 w-3 animate-pulse" /> Orbital Launch Phase: Active
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 bg-gradient-to-b from-white to-white/40 bg-clip-text text-transparent">
-            GUARDDRIVE
-          </h1>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-            Establishing the first sovereign infrastructure for inviolable vehicle forensics. 
-            Powered by the <span className="text-bio-green font-bold">Symbeon Protocol</span>.
-          </p>
-        </motion.div>
-
-        {/* Hero Portal Visual */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, duration: 1 }}
-          className="relative w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_50px_rgba(0,255,65,0.1)] mb-16 group"
-        >
-          <Image 
-            src="/brand/hero_banner.png" 
-            alt="GuardDrive Hero Banner" 
-            fill 
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent" />
-        </motion.div>
-
-        {/* Features / Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mb-16">
-          <div className="p-6 bg-white/5 border border-white/10 rounded-xl text-left hover:border-bio-green/30 transition-colors">
-            <Shield className="h-6 w-6 text-bio-green mb-4" />
-            <h3 className="text-sm font-bold mb-2 uppercase tracking-wide">Forensic Integrity</h3>
-            <p className="text-[11px] text-muted-foreground uppercase leading-tight">
-              Real-time inertial validation and crash vector analysis.
+          <div className="space-y-6">
+            <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-[0.9]">
+              Sovereignty <br />
+              <span className="text-white/20">Through Intelligence</span>
+            </h1>
+            <p className="text-lg md:text-xl text-muted-foreground font-mono uppercase tracking-widest max-w-2xl mx-auto leading-relaxed">
+              Establishing the high-confidence infrastructure for autonomous and regenerative mobility.
             </p>
           </div>
-          <div className="p-6 bg-white/5 border border-white/10 rounded-xl text-left hover:border-synth-purple/30 transition-colors">
-            <Lock className="h-6 w-6 text-synth-purple mb-4" />
-            <h3 className="text-sm font-bold mb-2 uppercase tracking-wide">IP Lockdown</h3>
-            <p className="text-[11px] text-muted-foreground uppercase leading-tight">
-              Local cryptographic signing via Secure Element firmware.
-            </p>
-          </div>
-          <div className="p-6 bg-white/5 border border-white/10 rounded-xl text-left hover:border-blue-400/30 transition-colors">
-            <Gavel className="h-6 w-6 text-blue-400 mb-4" />
-            <h3 className="text-sm font-bold mb-2 uppercase tracking-wide">Smart Governance</h3>
-            <p className="text-[11px] text-muted-foreground uppercase leading-tight">
-              Direct integration with traffic authority infrastructure.
-            </p>
-          </div>
-        </div>
 
-        {/* CTA */}
-        <div className="flex flex-col sm:flex-row gap-4 mb-20">
-          <button 
-            onClick={handleStart}
-            className="flex items-center gap-2 bg-bio-green text-black px-8 py-4 font-bold rounded-lg hover:bg-bio-green/80 transition-all shadow-[0_0_30px_rgba(0,255,65,0.4)] group"
-          >
-            INITIALIZE COMMAND CENTER 
-            <motion.div animate={{ x: [0, 5, 0] }} transition={{ repeat: Infinity, duration: 1.5 }}>
-              <ArrowRight className="h-4 w-4" />
-            </motion.div>
-          </button>
-          
-          <Link href="/docs">
-            <button className="flex items-center gap-2 bg-transparent border border-white/20 text-white px-8 py-4 font-bold rounded-lg hover:bg-white/5 transition-all">
-              REVIEW WHITE PAPER
+          <div className="h-px w-24 bg-[#00FF88]/30 mx-auto" />
+
+          <div className="text-left max-w-2xl mx-auto space-y-8 py-12">
+            <p className="text-sm md:text-base leading-relaxed text-muted-foreground italic">
+              "We believe that trust shouldn't be a policy—it should be an unavoidable byproduct of code."
+            </p>
+            <div className="space-y-4">
+              <p className="text-xs md:text-sm leading-relaxed">
+                <span className="text-[#00FF88] font-bold">GuardDrive</span> is the sovereign vertical for mobility forensics. 
+                Powered by the <span className="text-white font-bold underline decoration-[#00FF88]">Symbeon Protocol</span>, we provide a solid foundation 
+                where every kilometer is auditably proven and ethically weighted.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <button 
+              onClick={handleStart}
+              className="group relative flex items-center justify-center gap-4 bg-[#00FF88] text-black px-12 py-6 font-bold text-sm tracking-[0.2em] rounded-full hover:bg-white transition-all shadow-[0_0_50px_rgba(0,255,136,0.3)]"
+            >
+              INITIALIZE ACCESS PROTOCOL
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
             </button>
-          </Link>
-        </div>
-
+          </div>
+        </motion.div>
       </main>
 
-      {/* Footer Status */}
-      <footer className="w-full p-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-muted-foreground uppercase tracking-widest relative z-10">
-        <div>System Version: 1.0.0-Pilot (Refined)</div>
-        <div className="flex flex-wrap justify-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-bio-green animate-pulse" />
-            <span>Edge Sync: Stable</span>
+      {/* Institutional Footer */}
+      <footer className="absolute bottom-0 w-full p-12 flex flex-col md:flex-row justify-between items-end gap-8 text-[10px] text-muted-foreground uppercase font-mono tracking-widest">
+        <div className="space-y-2">
+          <div>Entity: Symbeon Labs // Group: SH1W4</div>
+          <div>Project: GuardDrive Pilot V4.0</div>
+          <div>Status: IP Lockdown / Stealth Mode</div>
+        </div>
+        <div className="text-right space-y-2">
+          <div className="flex items-center gap-2 justify-end">
+            <div className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
+            <span>Master Engine: Stable</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-bio-green" />
-            <span>Authority Link: Verified</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-bio-green" />
-            <span>IP_LOCKDOWN: ON</span>
-          </div>
+          <div>Protected by Master Patent INPI-BR</div>
+          <div className="opacity-30">© 2026 Sovereign Trust Network. All rights reserved.</div>
         </div>
       </footer>
     </div>
