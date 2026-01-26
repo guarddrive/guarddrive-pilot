@@ -69,7 +69,7 @@ export function useDigitalTwin() {
         lat: newLat,
         lng: newLng,
         timestamp: new Date().toISOString(),
-        signature: `SYMBEON-TWIN-${Math.random().toString(36).substring(7).toUpperCase()}`,
+        signature: `L1-CORE-TWIN-${Math.random().toString(36).substring(7).toUpperCase()}`,
         seveWeights: newWeights,
         esgMetrics: newEsg,
         velocity_vector: { x: targetAccel, y: 0 },

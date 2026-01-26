@@ -6,20 +6,20 @@ import Link from "next/link";
 
 const docs = [
   {
-    title: "Centelha/FAPESB Spec",
-    desc: "Full project specification and implementation roadmap.",
+    title: "Específica Técnica (TRL 6)",
+    desc: "Detalhamento funcional e cronograma de maturidade tecnológica.",
     icon: ShieldCheck,
     tag: "GOVERNANCE",
   },
   {
-    title: "Symbeon Protocol Whitepaper",
-    desc: "The inner workings of the L1 validation engine.",
+    title: "Arquitetura de Interoperabilidade L1",
+    desc: "A camada base para validação de dados em ambiente hostil.",
     icon: Cpu,
     tag: "TECHNICAL",
   },
   {
-    title: "V2X Mesh Architecture",
-    desc: "Anti-jammer communication protocol details.",
+    title: "Topologia Hardware-Mesh V2X",
+    desc: "Protocolo de resiliência e integridade de sinal em malha.",
     icon: FileText,
     tag: "INFRASTRUCTURE",
   }
@@ -33,15 +33,15 @@ export default function DocsPage() {
       <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end border-b border-white/10 pb-6 gap-6">
         <div>
           <Link href="/dashboard" className="text-[#00FF88] text-[10px] hover:underline decoration-[#00FF88]/30 mb-4 block tracking-widest uppercase">
-            [ BACK_TO_CONTROL_CENTER ]
+            [ RETORNAR_AO_CONTROLE ]
           </Link>
           <h1 className="text-3xl font-black uppercase tracking-tighter leading-none flex items-center gap-4">
              <div className="w-2 h-8 bg-[#00FF88]" />
-             Sovereign Knowledge Base
+             Base de Conhecimento Proprietária
           </h1>
         </div>
         <div className="text-[9px] text-muted-foreground uppercase tracking-[0.3em] font-bold">
-          Access Level: Authorized // Protocol: 4.0.2
+          Nível de Acesso: ENGENHARIA // Versão: 4.2.0
         </div>
       </div>
 
@@ -86,11 +86,11 @@ export default function DocsPage() {
            <ShieldCheck className="h-6 w-6 text-[#00FF88]" />
         </div>
         <div className="space-y-2 flex-1">
-          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#00FF88]">Security Advisory: Protocol Locking Active</h4>
+          <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-[#00FF88]">Aviso de Segurança: Bloqueio de IP Ativo</h4>
           <p className="text-[10px] text-white/40 leading-relaxed uppercase tracking-wider max-w-3xl">
-            Proprietary Layer 1 algorithms (Symbeon Validator) are hosted off-chain to ensure IP lockdown. 
-            Full technical audits require a physical neural handshake with the organization's CTO. 
-            all downloads are cryptographically watermarked with session hash [AUTH_SHA256].
+            Algoritmos proprietários de Camada 1 (Validador de Rigor) estão hospedados off-chain para garantir o lockdown de propriedade intelectual. 
+            Auditorias completas exigem handshake físico com o CTO da organização. 
+            Todos os downloads são marcados digitalmente com hash de sessão [AUTH_SHA256].
           </p>
         </div>
       </div>

@@ -71,7 +71,7 @@ export function useSimulation() {
         lng: prev.lng + (Math.random() * 0.0001 - 0.00005),
         jammerStatus: Math.random() > 0.95 ? "DETECTED" : "CLEAN",
         timestamp: new Date().toISOString(),
-        signature: `TRINITY-SIG-${Math.random().toString(36).substring(7).toUpperCase()}`,
+        signature: `CORE-L1-SIG-${Math.random().toString(36).substring(7).toUpperCase()}`,
         seveWeights: newWeights,
         esgMetrics: newEsg,
       };
@@ -80,7 +80,7 @@ export function useSimulation() {
 
   const validateEvent = async () => {
     setValidationState("AUDITING");
-    // Connect to Themis/Symbeon Engine (Simulated Latency)
+    // Conexão com Validador de Camada 1/3 (Latência Simulada)
     setTimeout(() => {
       const isCompliant = data.gForce < 8.0; 
       setValidationState(isCompliant ? "VERIFIED" : "NON_COMPLIANT");

@@ -17,34 +17,34 @@ const steps: Step[] = [
   {
     id: "validation-status",
     targetId: "pilot-validation-card",
-    title: "PILOT_VALIDATION_STATUS",
-    what: "Métricas consolidadas de operação real do protótipo.",
-    why: "Avaliadores buscam evidências de teste em ambiente real (TRL 6). Números concretos eliminam a subjetividade da nota.",
-    advantage: "Enquanto sistemas padrão operam em simulação teórica, o GuardDrive já acumula 500h de telemetria pericial validada."
+    title: "MÉTRICAS_DE_RIGOR_TÉCNICO",
+    what: "Consolidação de dados operacionais reais em ambiente controlado.",
+    why: "A conformidade com TRL 6 exige a validação estatística de eventos reais. Números precisos eliminam incertezas operacionais.",
+    advantage: "Enquanto sistemas legados dependem de modelos preditivos puros, este protótipo utiliza telemetria pericial auditável em tempo de execução."
   },
   {
     id: "multi-city",
     targetId: "city-selector-ui",
-    title: "MULTI_CITY_LIVING_LABS",
-    what: "Rede distribuída de validação geográfica (SSA, FSA, LDF).",
-    why: "Prova que a tecnologia é agnóstica ao contexto local e possui alta capacidade de replicação (Escalabilidade).",
-    advantage: "A arquitetura multi-nó garante resiliência jurídica e técnica em diferentes jurisdições municipais."
+    title: "TOPOLOGIA_GEOGRÁFICA_DISTRIBUÍDA",
+    what: "Malha de validação multi-nó em diferentes contextos urbanos.",
+    why: "Garantir a integridade da arquitetura independente da topologia local ou da jurisdição normativa municipal.",
+    advantage: "A descentralização das unidades de teste previne falhas sistêmicas e assegura a resiliência jurídica do cluster."
   },
   {
     id: "seve-gov",
     targetId: "seve-govern-panel",
-    title: "SEVE_ETHICAL_GOVERNANCE",
-    what: "Framework para ponderação ética e explicabilidade algorítmica segundo diretrizes da SBC.",
-    why: "Atendimento direto às diretrizes de IA Ética da SBC e Finep. Garante transparência em decisões críticas.",
-    advantage: "O SEVE transforma a IA de uma 'caixa-preta' em um processo de decisão pericial transparente e auditável."
+    title: "FRAMEWORK_DE_EXPLICABILIDADE_L1",
+    what: "Camada de ponderação ética e transparência algorítmica.",
+    why: "Exigência fundamental para automação de alta confiança. Garante que cada decisão de IA possua um rastro lógico pericial.",
+    advantage: "O sistema remove a opacidade algorítmica, transformando dados brutos em decisões auditáveis por órgãos reguladores."
   },
   {
     id: "evidence-stream",
     targetId: "evidence-log-panel",
-    title: "PROTOCOL_PROTOCOL_CHAIN",
-    what: "Stream criptográfico de eventos (Cadeia de Custódia) assinado via hardware edge.",
-    why: "Garantir a admissibilidade jurídica dos dados coletados conforme o CPC-BR.",
-    advantage: "Diferente de logs de nuvem manipuláveis, o GuardDrive utiliza 'Root of Trust' em hardware para imunidade de dados."
+    title: "PROTOCOLO_CADEIA_DE_CUSTÓDIA",
+    what: "Fluxo de evidências assinado via Hardware Secure Element (Edge).",
+    why: "Assegurar a incolumidade dos dados e a admissibilidade jurídica conforme normas periciais internacionais.",
+    advantage: "Diferente de centralizadores de dados, a assinatura em hardware garante imunidade contra manipulação em trânsito."
   }
 ];
 
@@ -224,7 +224,7 @@ export default function OnboardingTutorial() {
 
             <div className="px-8 pb-4 flex items-center gap-2 opacity-20 pointer-events-none">
                <Shield className="h-3 w-3 text-white" />
-               <span className="text-[8px] uppercase tracking-widest font-mono text-white">Themis/EditalShield Validated Narrative Layer</span>
+               <span className="text-[8px] uppercase tracking-widest font-mono text-white">Certified Engineering Narrative Cluster</span>
             </div>
           </motion.div>
         </AnimatePresence>

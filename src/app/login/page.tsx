@@ -92,10 +92,10 @@ export default function LoginPage() {
         <div className="pt-8 border-t border-white/5 flex flex-col items-center gap-4">
           <div className="flex items-center gap-2 text-[10px] text-muted-foreground uppercase font-mono">
             <Cpu className="h-3 w-3" />
-            <span>Encrypted via Symbeon Validator V2</span>
+            <span>Criptografia via Validador de Camada 1</span>
           </div>
           <p className="text-[9px] text-muted-foreground/50 text-center uppercase tracking-tighter max-w-[280px]">
-            Unauthorized access attempts are logged and reported to the Sovereign Trust Network.
+            Tentativas de acesso não autorizado são registradas na rede de confiança soberana.
           </p>
         </div>
       </motion.div>

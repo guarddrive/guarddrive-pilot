@@ -76,7 +76,7 @@ export default function LandingPage() {
             <div className="space-y-4">
               <p className="text-xs md:text-sm leading-relaxed uppercase tracking-widest font-mono text-white/60">
                 <span className="text-[#00FF88] font-bold">GuardDrive</span> é o vertical soberano para perícia em mobilidade. 
-                Sob o protocolo <span className="text-white font-bold underline decoration-[#00FF88]">Symbeon</span>, consolidamos uma base sólida 
+                Sob o <span className="text-white font-bold underline decoration-[#00FF88]">Protocolo de Camada 1</span>, consolidamos uma base sólida 
                 onde cada quilômetro é auditavelmente provado e eticamente ponderado.
               </p>
             </div>
@@ -97,8 +97,8 @@ export default function LandingPage() {
       {/* Institutional Footer */}
       <footer className="absolute bottom-0 w-full p-12 flex flex-col md:flex-row justify-between items-end gap-8 text-[10px] text-muted-foreground uppercase font-mono tracking-widest">
         <div className="space-y-2">
-          <div>Entity: Symbeon Labs // Group: SH1W4</div>
-          <div>Project: GuardDrive Pilot V4.0</div>
+          <div>Laboratório de Engenharia Proprietária // Group: SH1W4</div>
+          <div>Project: GuardDrive Pilot V4.2</div>
           <div>Status: IP Lockdown / Stealth Mode</div>
         </div>
         <div className="text-right space-y-2">

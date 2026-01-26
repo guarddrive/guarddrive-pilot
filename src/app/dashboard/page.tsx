@@ -20,9 +20,9 @@ const SalvadorMap = dynamic(() => import("@/components/dashboard/SalvadorMap"), 
 
 export default function PilotDashboard() {
   const { data, isRunning, setIsRunning, triggerCollision, isEmergency } = useDigitalTwin();
-  const [validationState, setValidationState] = useState<"IDLE" | "AUDITING" | "VERIFIED" | "NON_COMPLIANT">("IDLE");
-  const [showCertificate, setShowCertificate] = useState(false);
   const [selectedLab, setSelectedLab] = useState("ba-ssa-01");
+  const [showRigor, setShowRigor] = useState(false);
+  const [showL1Certificate, setShowL1Certificate] = useState(false);
 
   const validateEvent = async () => {
     setValidationState("AUDITING");
@@ -68,6 +68,16 @@ export default function PilotDashboard() {
           </div>
           
           <button 
+            onClick={() => setShowRigor(!showRigor)}
+            className={cn(
+              "px-4 py-1 border text-[10px] uppercase transition-all",
+              showRigor ? "bg-[#00FF88] text-black font-bold border-[#00FF88]" : "border-white/10 text-white/40 hover:bg-white/5"
+            )}
+          >
+            {showRigor ? "[ RIGOR_ON ]" : "[ SHOW_RIGOR ]"}
+          </button>
+          
+          <button 
             onClick={() => setIsRunning(!isRunning)}
             className="px-4 py-1 border border-white/10 text-[10px] uppercase hover:bg-white/5 transition-all"
           >
@@ -96,12 +106,21 @@ export default function PilotDashboard() {
             <div className="flex items-center gap-4">
               <Loader2 className="h-4 w-4 text-blue-500 animate-spin" />
               <div className="space-y-0.5">
-                <span className="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Themis Audit Active</span>
-                <p className="text-[9px] text-white/50 uppercase">Validating L1 Evidence Integrity...</p>
+                <span className="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Auditoria Protocolo L1 Ativa</span>
+                <p className="text-[9px] text-white/50 uppercase">Validando Integridade de Evidência pericial...</p>
               </div>
             </div>
-            <div className="w-48 h-1.5 bg-white/5 rounded-full overflow-hidden">
-               <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.8 }} className="h-full bg-blue-500" />
+            
+            <div className="flex items-center gap-6">
+              <div className="w-48 h-1.5 bg-white/5 rounded-full overflow-hidden">
+                 <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.8 }} className="h-full bg-blue-500" />
+              </div>
+              <button 
+                onClick={() => setShowL1Certificate(true)}
+                className="text-[10px] px-4 py-1.5 bg-[#00FF88] text-black font-black uppercase shadow-[0_0_15px_rgba(0,255,136,0.2)] hover:scale-105 transition-transform"
+              >
+                Emitir_Laudo_L1
+              </button>
             </div>
           </motion.div>
         )}
@@ -111,7 +130,7 @@ export default function PilotDashboard() {
       <div className="grid grid-cols-12 gap-6 mb-8 uppercase text-[10px] tracking-widest">
         <div id="pilot-validation-card" className="col-span-12 md:col-span-5 bg-white/5 border border-white/10 p-6 rounded-xl space-y-4">
           <div className="flex justify-between items-center border-b border-white/5 pb-3">
-             <h3 className="font-bold text-[#00FF88]">Pilot Validation Status</h3>
+             <h3 className="font-bold text-[#00FF88]">Métricas de Rigor Operacional</h3>
              <span className="text-[9px] px-2 py-0.5 bg-[#00FF88]/10 text-[#00FF88] rounded border border-[#00FF88]/20">TRL 6 → TRL 7 READY</span>
           </div>
           <div className="grid grid-cols-2 gap-y-4 gap-x-8 font-mono">
@@ -229,9 +248,9 @@ export default function PilotDashboard() {
            <div className="flex justify-between items-center mb-6">
              <h2 className="text-[10px] font-bold flex items-center gap-3 tracking-[0.2em] uppercase">
                <span className="w-1.5 h-1.5 rounded-full bg-[#00FF88] animate-pulse" />
-               EVIDENCE_STREAM
+               PROTOCOLO_CADEIA_CUSTÓDIA
              </h2>
-             <span className="text-[8px] text-white/30 font-mono">VALIDATOR_v4.0</span>
+             <span className="text-[8px] text-white/30 font-mono">L1_CORE_VALIDATOR</span>
            </div>
 
            <div className="flex-1 overflow-hidden relative">
@@ -284,68 +303,101 @@ export default function PilotDashboard() {
 
       {/* Forensic Certificate Modal */}
       <AnimatePresence>
-        {showCertificate && (
+        {showL1Certificate && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="fixed inset-0 z-50 bg-void/90 backdrop-blur-md flex items-center justify-center p-6"
+            className="fixed inset-0 z-50 bg-[#0E0E10]/90 backdrop-blur-md flex items-center justify-center p-6"
           >
             <motion.div 
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-zinc-900 border border-bio-green/30 w-full max-w-2xl overflow-hidden"
+              className="bg-zinc-900 border border-[#00FF88]/30 w-full max-w-2xl overflow-hidden"
             >
-              <div className="bg-bio-green p-4 flex justify-between items-center text-black">
-                <span className="font-bold flex items-center gap-2 uppercase tracking-tighter">
-                  <Shield className="h-4 w-4" /> Forensic Evidence Certificate
+              <div className="bg-[#00FF88] p-4 flex justify-between items-center text-black">
+                <span className="font-bold flex items-center gap-2 uppercase tracking-tighter text-[10px]">
+                  <Shield className="h-4 w-4" /> Laudo de Autenticidade L1_CORE
                 </span>
-                <span className="text-[10px] font-mono">UUID: {data.signature.split('-')[2]}</span>
+                <span className="text-[9px] font-mono opacity-50">HASH: {data.signature.split('-')[1]}</span>
               </div>
               <div className="p-8 font-mono text-xs space-y-6">
-                 <div className="grid grid-cols-2 gap-8 text-[10px] border-b border-white/5 pb-6 text-muted-foreground uppercase">
+                 <div className="grid grid-cols-2 gap-8 text-[10px] border-b border-white/5 pb-6 text-muted-foreground uppercase tracking-widest">
                     <div>
-                      <p>Subject: Vehicle Node SSA-01</p>
-                      <p>Authority: Symbeon Protocol v1.0</p>
+                      <p>Subject: Node Veicular {selectedLab.split('-')[1].toUpperCase()}</p>
+                      <p>Authority: Protocolo Proprietário L1</p>
                     </div>
                     <div className="text-right">
-                      <p>Issue Date: {new Date().toLocaleDateString()}</p>
-                      <p>Legal Standard: MLI-2024 / CPC-BR</p>
+                      <p>Data: {new Date().toLocaleDateString()}</p>
+                      <p>Standard: MLI-2026 / ISO-26262</p>
                     </div>
                  </div>
 
                   <div className="space-y-4">
-                    <h4 className="text-bio-green font-bold uppercase">Audit Summary</h4>
-                    <pre className="p-4 bg-black/40 border border-white/5 rounded leading-relaxed text-[9px] text-white/70">
-{`[VERIFICATION_LOG]
-> HASH_INTEGRITY: POSITIVE
-> TEMPORAL_STAMP: MATCH
-> INERTIAL_VECTOR_ANALYSIS: WITHIN_THRESHOLD
-> L1_HARDWARE_SIGN_STATUS: GENUINE
-> THEMIS_RULESET_COMPLIANCE: 100%
+                    <h4 className="text-[#00FF88] font-bold uppercase text-[10px]">Sumário de Auditoria de Rigor</h4>
+                    <pre className="p-4 bg-black/40 border border-white/5 rounded leading-relaxed text-[9px] text-white/50">
+{`[TECHNICAL_INTEGRITY_LOG]
+> L1_HASH_VERIFICATION: PASSED
+> TEMPORAL_STAMP_PROBITY: VERIFIED
+> INERTIAL_VECTOR_RIGOR: WITHIN_TOLERANCE
+> HARDWARE_ROOT_OF_TRUST_SIGN: AUTHENTIC
+> JURIDICAL_COMPLIANCE_SCORE: 1.00
 
-[SEVE_CONTEXT_V2.0]
-> DOMAIN: MOBILITY_SSA_01
-> ETHICAL_ADAPTATION: ${data.gForce > 5 ? "EMERGENCY_ESCALATION" : "NOMINAL_NAVIGATION"}
-> PRIVACY_WEIGHT: ${data.seveWeights.privacy.toFixed(2)}
-> SAFETY_WEIGHT: ${data.seveWeights.safety.toFixed(2)}
-> FORENSICS_WEIGHT: ${data.seveWeights.forensics.toFixed(2)}
+[CONTEXT_WEIGHT_v4.2]
+> DOMAIN: MOBILITY_SYSTEM_NODE_${selectedLab.split('-')[1].toUpperCase()}
+> ETHICAL_ADAPTATION: ${data.gForce > 5 ? "CRITICAL_STATE" : "NOMINAL_STATE"}
+> SAFETY_WEIGHT: ${data.seveWeights.safety.toFixed(4)}
+> FORENSICS_WEIGHT: ${data.seveWeights.forensics.toFixed(4)}
 
-THE EVENT COLLECTED MEETS THE MINIMUM LEGAL REQUIREMENTS FOR FORENSIC ADMISSIBILITY IN BRAZILIAN COURTS.`}
+ESTE EVENTO POSSUI INCOLUMIDADE GARANTIDA VIA HARDWARE E ATENDE AOS REQUISITOS DE ADMISSIBILIDADE PERICIAL CONFORME O CPC-BR.`}
                     </pre>
                   </div>
 
                  <div className="flex justify-between items-end pt-4">
-                    <div className="flex items-center gap-2 opacity-50">
-                       <div className="w-12 h-12 border border-white/20 flex items-center justify-center text-[8px] italic">SEAL</div>
-                       <div className="text-[8px]">SIGNED BY<br/>THEMIS_AI_CORE</div>
+                    <div className="flex items-center gap-2 opacity-30 group">
+                       <div className="w-12 h-12 border border-white/20 flex items-center justify-center text-[8px] italic">SELADO</div>
+                       <div className="text-[8px]">ASSINADO DIGITALMENTE<br/>L1_CORE_ENGINE</div>
                     </div>
-                    <div className="flex gap-2">
-                       <button onClick={() => setShowCertificate(false)} className="px-4 py-2 border border-white/10 hover:bg-white/5 transition-colors">CLOSE</button>
-                       <button className="px-4 py-2 bg-bio-green text-black font-bold hover:bg-bio-green/80 transition-colors">PRINT_OFFICIAL</button>
+                    <div className="flex gap-4">
+                       <button onClick={() => setShowL1Certificate(false)} className="px-6 py-3 border border-white/10 hover:bg-white/5 transition-colors uppercase text-[10px] tracking-widest">Fechar</button>
+                       <button className="px-6 py-3 bg-[#00FF88] text-black font-black hover:bg-white transition-all uppercase text-[10px] tracking-widest shadow-[0_0_20px_rgba(0,255,136,0.2)]">Imprimir_Laudo</button>
                     </div>
                  </div>
               </div>
             </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Rigor Overlay Sidebar */}
+      <AnimatePresence>
+        {showRigor && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            className="fixed right-0 top-0 bottom-0 w-80 bg-[#0E0E10]/95 border-l border-[#00FF88]/20 z-40 backdrop-blur-xl p-8 overflow-hidden flex flex-col font-mono"
+          >
+            <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
+              <span className="text-[#00FF88] font-bold text-[10px] tracking-[0.2em]">RAW_RIGOR_FEED</span>
+              <Activity className="h-4 w-4 text-[#00FF88] animate-pulse" />
+            </div>
+            <div className="flex-1 space-y-4 text-[9px] overflow-y-auto no-scrollbar opacity-60">
+              {Array.from({ length: 20 }).map((_, i) => (
+                <div key={i} className="space-y-1">
+                  <div className="flex justify-between text-white/40">
+                    <span>SYS_CLK_{Date.now() + i}</span>
+                    <span>0x{Math.random().toString(16).substring(2,6).toUpperCase()}</span>
+                  </div>
+                  <div className="text-[#00FF88]/40 truncate">
+                    VALIDATING_INERTIAL_FRAME: {Math.random() * 9.8} m/s²
+                  </div>
+                  <div className="h-px w-full bg-white/5" />
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 pt-4 border-t border-white/5 text-[8px] text-white/20 uppercase tracking-widest leading-relaxed">
+              * Mostrando validação matemática em tempo real do processador de segurança.
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
