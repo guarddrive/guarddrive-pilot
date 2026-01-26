@@ -154,7 +154,7 @@ export default function LandingPage() {
                 Acreditamos que a confiança não deve ser uma política institucional — deve ser um subproduto inevitável de algoritmos determinísticos.
               </p>
               <p>
-                O <span className="text-white font-bold">Protocolo de Camada 1</span> do GuardDrive estabelece a primeira malha de perícia absoluta, onde cada quilômetro percorrido é assinado via hardware e validado por consenso ético.
+                O <span className="text-white font-bold">Protocolo de Camada 1</span> do GuardDrive estabelece a primeira malha de perícia absoluta, permitindo a **Tokenização de Métricas Comportamentais**. Transformamos o rigor da condução em ativos digitais auditáveis, criando a fundação para uma economia de mobilidade baseada em mérito técnico.
               </p>
             </div>
             

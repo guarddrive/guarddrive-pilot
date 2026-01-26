@@ -20,6 +20,9 @@ Todos os dados são assinados localmente via **Secure Element (Hardware Root of 
 ### 3. Infraestrutura de Smart City (AUTORIDADE)
 Equipado com **Digital Twin Integration** e protocolos de comunicação V2X, o GuardDrive permite que torres de controle e autoridades verifiquem o "Status de Rigor" do veículo em tempo real, 24/7.
 
+### 4. Tokenização Comportamental (ECONOMIA)
+O protocolo possibilita a implementação de **Métricas de Comportamento Assetizadas (Behaviour-as-a-Token)**. Através da validação inercial, o sistema converte o rigor da condução em ativos digitais (GST/ESG), permitindo novos modelos de monetização e governança baseada em conformidade.
+
 ---
 
 

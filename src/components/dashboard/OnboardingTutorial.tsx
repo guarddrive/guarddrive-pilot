@@ -31,20 +31,20 @@ const steps: Step[] = [
     advantage: "A descentralização das unidades de teste previne falhas sistêmicas e assegura a resiliência jurídica do cluster."
   },
   {
-    id: "seve-gov",
-    targetId: "seve-govern-panel",
-    title: "FRAMEWORK_DE_EXPLICABILIDADE_L1",
-    what: "Camada de ponderação ética e transparência algorítmica.",
-    why: "Exigência fundamental para automação de alta confiança. Garante que cada decisão de IA possua um rastro lógico pericial.",
-    advantage: "O sistema remove a opacidade algorítmica, transformando dados brutos em decisões auditáveis por órgãos reguladores."
-  },
-  {
     id: "evidence-stream",
     targetId: "evidence-log-panel",
     title: "PROTOCOLO_CADEIA_DE_CUSTÓDIA",
     what: "Fluxo de evidências assinado via Hardware Secure Element (Edge).",
     why: "Assegurar a incolumidade dos dados e a admissibilidade jurídica conforme normas periciais internacionais.",
     advantage: "Diferente de centralizadores de dados, a assinatura em hardware garante imunidade contra manipulação em trânsito."
+  },
+  {
+    id: "economic-incentives",
+    targetId: "esg-metrics-card", 
+    title: "TOKENIZAÇÃO_COMPORTAMENTAL",
+    what: "Mecanismo de incentivo econômico via assets digitais (GST).",
+    why: "Converter o rigor operacional e a direção segura em créditos tangíveis, permitindo novos modelos de seguro e governança.",
+    advantage: "O protocolo permite que o 'bom comportamento' seja uma moeda de troca auditável, integrando perícia e economia circular."
   }
 ];
 
