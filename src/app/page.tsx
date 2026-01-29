@@ -203,9 +203,9 @@ export default function LandingPage() {
           >
              <div className="absolute inset-0 bg-gradient-to-t from-[#0E0E10] to-transparent z-10 opacity-60" />
              <img 
-               src="/assets/smart_city.png" 
-               alt="Sovereign Architecture"
-               className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
+               src="/assets/sovereign_architecture_v2.png" 
+               alt="Sovereign Architecture Dashboard"
+               className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000"
              />
              
              {/* Decorative HUD Elements */}
