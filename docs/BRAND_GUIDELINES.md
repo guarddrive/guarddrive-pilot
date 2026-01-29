@@ -11,10 +11,11 @@ A identidade visual da **GuardDrive** é construída sobre um escudo geométrico
 
 ### As Três Versões Oficiais:
 
-#### 1. 🔘 **Monochrome (Cinza/Preto)** - Versão Primária
-- **Uso**: Documentação oficial, editais governamentais, relatórios técnicos
-- **Contexto**: Máxima seriedade e neutralidade institucional
-- **Aplicação**: Headers de propostas, carimbos de autenticidade, documentos legais
+#### 1. 🔘 **Monochrome (Cinza/Preto)** - VERSÃO OFICIAL DEFINITIVA ⭐
+- **Uso**: **PADRÃO ABSOLUTO** para Centelha III e todos os editais governamentais
+- **Contexto**: Máxima seriedade, neutralidade institucional e credibilidade técnica
+- **Aplicação**: Headers de propostas, carimbos de autenticidade, documentos legais, apresentações formais
+- **Prioridade**: Esta é a marca primária da GuardDrive para contextos de alta seriedade
 
 #### 2. 🔵 **Blue (Azul Cobalto)** - Segurança & Confiança
 - **Uso**: Interfaces de sistema, dashboards de monitoramento, apresentações institucionais
