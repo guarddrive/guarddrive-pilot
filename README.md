@@ -4,12 +4,16 @@
 
 ![GuardDrive Sovereign Infrastructure](/p/guarddrive_pilot_hero_v43_1769447569343.png)
 
-## 🏛️ Triple-Repo Architecture
-GuardDrive operates as a decentralized infrastructure. This repository (**Pilot**) is the public face of the ecosystem.
+## 📖 Overview
+O **GuardDrive Pilot** é o portal de comando e demonstração telemática de alta fidelidade do ecossistema GuardDrive. Ele atua como o **Digital Twin** (Gêmeo Digital) de infraestrutura urbana, permitindo a visualização em tempo real de perícia veicular sob o **Protocolo Symbeon**.
 
-1.  **🚀 Pilot** (Public/Vercel): Branding, Website, and Public Digital Twin.
-2.  **📋 [Submission Portal](https://github.com/guarddrive/submission-portal)** (Public/Grants): Sanitized technical proof for the Centelha III edital.
-3.  **🔐 [Sovereign Vault](https://github.com/guarddrive/guarddrive-vault)** (Private/Sovereign): IP Lockdown - Strategic Assets, Patentes, and Full Compliance.
+---
+
+## ⚡ Technical Pillars (Protocolo Trinity)
+Nosso sistema é construído sobre três pilares de rigor industrial:
+- **N (Narrativa)**: Impacto socioambiental e valoração ESG.
+- **T (Técnico)**: Validação de evidência física (PoPE) e ZK-Privacy.
+- **C (Compliance)**: Governança institucional e padrões de auditoria pericial.
 
 ---
 
