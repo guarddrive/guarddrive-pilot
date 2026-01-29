@@ -41,4 +41,24 @@ yarn-error.log*
 next-env.d.ts
 
 .vercel
-grant_centelha_iii/
+# machine intelligence & artifacts
+.gemini/
+.agent/
+.venv/
+*.log
+*.pyc
+__pycache__/
+
+# Sovereign Vault (SENSIBLE - DO NOT COMMIT TO PUBLIC)
+**/Escritório_Jurídico/
+**/patentes_vault/
+**/vault_legacy/
+**/compliance/LOGIC_VALIDATOR_*
+**/compliance/GRANT_OPTIMIZER_*
+**/ip_strategy/PATENT_ASSET_INDEX.md
+**/LAWYER_REVIEW_PACKAGE.md
+**/LINKEDIN_PROFILE_MASTER.md
+
+# local documentation leaks
+**/file:///c:/**
+**/C:/Users/**
