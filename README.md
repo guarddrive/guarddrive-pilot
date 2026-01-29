@@ -1,54 +1,47 @@
-# 🦅 GuardDrive: A Primeira Camada de Validação Forense Descentralizada
+# 🦅 GuardDrive Pilot: The Sovereign Infrastructure Portal
 
-> **Para veículos autônomos e conectados.**
+> **Official Digital Twin & Branding Gateway for the GuardDrive Ecosystem.**
 
 ![GuardDrive Sovereign Infrastructure](/p/guarddrive_pilot_hero_v43_1769447569343.png)
 
-## 👁️ A Visão
-O **GuardDrive** estabelece o padrão ouro para perícia veicular em ambientes descentralizados. Desenvolvido para transmutar a telemetria legada em um fluxo absoluto de evidências criptográficas, o sistema garante que cada metro percorrido seja auditável, imutável e soberano.
+## 🏛️ Triple-Repo Architecture
+GuardDrive operates as a decentralized infrastructure. This repository (**Pilot**) is the public face of the ecosystem.
+
+1.  **🚀 Pilot** (Public/Vercel): Branding, Website, and Public Digital Twin.
+2.  **📋 [Submission Portal](https://github.com/guarddrive/submission-portal)** (Public/Grants): Sanitized technical proof for the Centelha III edital.
+3.  **🔐 [Sovereign Vault](https://github.com/guarddrive/guarddrive-vault)** (Private/Sovereign): IP Lockdown - Strategic Assets, Patentes, and Full Compliance.
 
 ---
 
-## ⚡ Pilares de Rigor (Protocolo Trinity)
+## 👁️ The Vision
+O **GuardDrive** estabelece o padrão ouro para perícia veicular em ambientes descentralizados. Desenvolvido para transmutar a telemetria legada em um fluxo absoluto de evidências criptográficas (PoPE), o sistema garante que cada metro percorrido seja auditável e soberano.
 
-### 1. Telemetria Pericial (CAMADA_LOG)
-Monitoramento em tempo real de velocidade, força-G e padrões inerciais. Diferente de rastreadores padrão, o GuardDrive detecta vetores de impacto e ângulos de colisão com precisão científica e rigor pericial.
-
-### 2. IP Lockdown (VALIDAÇÃO_L1)
-Todos os dados são assinados localmente via **Secure Element (Hardware Root of Trust)** antes da transmissão. Isso garante que a informação permaneça íntegra e soberana, mesmo sob compromisso de rede.
-
-### 3. Infraestrutura de Smart City (AUTORIDADE)
-Equipado com **Digital Twin Integration** e protocolos de comunicação V2X, o GuardDrive permite que torres de controle e autoridades verifiquem o "Status de Rigor" do veículo em tempo real, 24/7.
-
-### 4. Tokenização Comportamental (ECONOMIA)
-O protocolo possibilita a implementação de **Métricas de Comportamento Assetizadas (Behaviour-as-a-Token)**. Através da validação inercial, o sistema converte o rigor da condução em ativos digitais (GST/ESG), permitindo novos modelos de monetização e governança baseada em conformidade.
+## ⚡ Technical Pillars
+- **PoPE Protocol**: Proof of Physical Evidence via forensic inertia modeling.
+- **ZK-Privacy**: Absolute identity protection using zero-knowledge proofs.
+- **Digital Twin**: High-fidelity geospatial virtualization (Living Lab Salvador).
 
 ---
-
 
 ## 🛠️ Stack Tecnológica
-- **Framework**: [Next.js 16](https://nextjs.org/) (Turbopack)
-- **Engine de Animação**: Framer Motion (Parallax Imersivo)
-- **Processamento de Dados**: Protocolo Proprietário L1/L3
-- **Geospatial**: Leaflet Core Digital Twin
+- **Framework**: [Next.js 16](https://nextjs.org/) (Vercel Optimized)
+- **Engine**: City-Twin-Engine (TRL 6 Physical Modeling)
+- **Identity**: GuardPass (Sovereign ID)
 
-## 🚀 Inicialização Técnica
-
+## 🚀 Get Started
 ```bash
-# Clonar o repositório de engenharia
-git clone https://github.com/th3m1s-core/guarddrive-pilot.git
+# Clone the portal
+git clone https://github.com/guarddrive/guarddrive-pilot.git
 
-# Instalar dependências de rigor
-npm install
-
-# Iniciar o Simulador de Twin Digital
-npm run dev
+# Install & Run
+npm install && npm run dev
 ```
 
 ---
 
-## ⚖️ Governança e Sigilo
-Este projeto integra o **Ecossistema TrinityOS** e segue as normas de **IP Lockdown**. Toda a lógica algorítmica proprietária referente ao Validador de Camada 1 permanece em sigilo estratégico (Stealth Mode).
+## ⚖️ Governance & Sovereignty
+Este projeto segue as normas de **IP Lockdown**. Toda a lógica algorítmica estratégica e ativos jurídicos estão protegidos no **Sovereign Vault**.
 
+**Organization**: [GuardDrive Org](https://github.com/guarddrive)  
 **Liderança Técnica**: [João / SH1W4](https://github.com/SH1W4)  
-**Status**: `ORBITAL_LAUNCH` (Pilot V4.3 - Advanced Engineering)
+**Status**: `ORBITAL_LAUNCH` (Pilot V4.3 - Sovereign Infrastructure)

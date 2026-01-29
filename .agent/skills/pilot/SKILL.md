@@ -3,6 +3,7 @@
 ---
 name: pilot
 description: Master System Synthesis and High-Velocity Execution Guide for the GuardDrive Pilot.
+extends: SYMBEON_SKILL_STANDARD.md
 ---
 
 ## 1. Engine Mission (INTERFACE)
