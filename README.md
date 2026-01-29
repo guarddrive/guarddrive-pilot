@@ -11,6 +11,8 @@
 ## 📖 Overview
 O **GuardDrive Pilot** é o portal de comando e demonstração telemática de alta fidelidade do ecossistema GuardDrive. Ele atua como o **Digital Twin** (Gêmeo Digital) de infraestrutura urbana, permitindo a visualização em tempo real de perícia veicular sob o **Protocolo Symbeon**.
 
+![GuardDrive Technical Blueprints](https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/guarddrive_technical_blueprints_v3_1769670603759.png)
+
 ---
 
 ## ⚡ Technical Pillars (Protocolo Trinity)
@@ -18,16 +20,6 @@ Nosso sistema é construído sobre três pilares de rigor industrial:
 - **N (Narrativa)**: Impacto socioambiental e valoração ESG.
 - **T (Técnico)**: Validação de evidência física (PoPE) e ZK-Privacy.
 - **C (Compliance)**: Governança institucional e padrões de auditoria pericial.
-
----
-
-## 👁️ The Vision
-O **GuardDrive** estabelece o padrão ouro para perícia veicular em ambientes descentralizados. Desenvolvido para transmutar a telemetria legada em um fluxo absoluto de evidências criptográficas (PoPE), o sistema garante que cada metro percorrido seja auditável e soberano.
-
-## ⚡ Technical Pillars
-- **PoPE Protocol**: Proof of Physical Evidence via forensic inertia modeling.
-- **ZK-Privacy**: Absolute identity protection using zero-knowledge proofs.
-- **Digital Twin**: High-fidelity geospatial virtualization (Living Lab Salvador).
 
 ---
 
