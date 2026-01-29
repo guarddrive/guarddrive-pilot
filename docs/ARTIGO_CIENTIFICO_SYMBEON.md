@@ -14,8 +14,8 @@ O diferencial econômico reside no algoritmo de **Identificação de Perfil de C
 - **Identidade Híbrida**: O token emitido é assinado pelo par [VEÍCULO+MOTORISTA], garantindo que o mérito econômico seja atribuído corretamente.
 - **Equação de Reward**: $Reward = (S_w \cdot 0.6) + (F_p \cdot 0.3) + (P_s \cdot 0.1)$.
 
-## 3. Validação em Ambiente Relevante (TRL 6)
-O sistema foi validado no **Salvador Living Lab**, utilizando um *Digital Twin* de alta fidelidade.
+## 3. Validação em Ambiente Simulado (TRL 4/5)
+O sistema foi validado no **Salvador Living Lab**, utilizando um *Digital Twin* de alta fidelidade (Ambiente Simulado).
 - **Cenário**: Simulação de 50 veículos em malha urbana complexa.
 - **Performance**: Latência de validação < 500ms; Taxa de detecção de fraude inercial de 93%.
 - **Resiliência**: Suporte a protocolos V2X com imunidade a jammers detectada em tempo de execução.

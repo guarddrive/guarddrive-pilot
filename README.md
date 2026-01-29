@@ -6,55 +6,55 @@
 <div align="center">
 
 # 🦅 GUARDDRIVE PILOT
-## The Sovereign Infrastructure Portal & Digital Twin Gateway
+## The Sovereign Infrastructure Simulation & Research Gateway
 
-> **Authoritative simulation environment for high-fidelity mobility validation and forensic orchestration.**
+> **An experimental simulation environment for mobility validation and forensic orchestration research.**
 
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://guarddrive-pilot.vercel.app)
-[![TRL 6](https://img.shields.io/badge/TRL-6_Validated-00FF88?style=for-the-badge)](https://guarddrive-pilot.vercel.app)
+[![TRL 5](https://img.shields.io/badge/TRL-5_Validated-00FF88?style=for-the-badge)](https://guarddrive-pilot.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 
 </div>
 
 ---
 
-## 📖 Operational Overview
+## 📖 Project Overview
 
-O **GuardDrive Pilot** é o centro nevrálgico de simulação e demonstração do ecossistema. Atuando como um **Digital Twin (Gêmeo Digital)** de infraestrutura urbana de alta resolução, o portal permite a validação pericial em tempo real sob o rigor do **Protocolo Symbeon**.
+O **GuardDrive Pilot** é o ambiente de teste e investigação do ecossistema. Atuando como um protótipo de **Digital Twin (Gêmeo Digital)**, este portal permite explorar a validação pericial sob os conceitos do **Sovereign Witness Framework**.
 
-Esta interface virtualiza o comportamento de frotas autônomas e conectadas, transformando dados telemáticos complexos em visualizações auditáveis e evidências forenses imutáveis.
+Esta interface busca virtualizar o comportamento de frotas conectadas, testando a transformação de dados telemáticos em visualizações auditáveis e evidências forenses preliminares.
 
 ![GuardDrive Industrial CAD Blueprints](https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_technical_blueprints_v3.png)
 
 ---
 
-## ⚡ Core Technologies: The Sovereign Stack
+## ⚡ Core Technologies: Research Areas
 
 ### 🔐 ZK-Privacy Layer
-Our **Zero-Knowledge Privacy** implementation ensures LGPD and GDPR compliance by design. Sensitive telematic data is validated without exposing raw behavioral patterns, enabling institutional audits while preserving driver privacy.
+Our **Zero-Knowledge Privacy** proposal aims to ensure LGPD and GDPR compliance by design. We are investigating how sensitive telematic data can be validated without exposing raw behavioral patterns.
 
 ### 🛡️ PoPE (Proof of Physical Evidence)
-The **Proof of Physical Evidence** protocol establishes hardware-backed chain of custody. Every data point is cryptographically signed at the edge (Secure Element/HSM), creating immutable forensic trails admissible in legal proceedings.
+The **Proof of Physical Evidence** protocol explores hardware-backed chain of custody. We test signing data points at the edge (Secure Element/HSM) to create forensic trails for potential legal applications.
 
 ### 🎯 Trinity Protocol
-Our operational framework balances three critical dimensions:
-- **N (Narrative)**: ESG value engineering and stakeholder alignment
-- **T (Technical)**: TRL 6+ validation and algorithmic rigor
-- **C (Compliance)**: Regulatory conformity and audit readiness
+Our research framework considers three critical dimensions:
+- **N (Narrative)**: ESG value engineering 
+- **T (Technical)**: TRL 5 validation in simulated environments
+- **C (Compliance)**: Regulatory alignment studies
 
 ### 💎 Behaviour-as-a-Token (BaaT)
-We transmute verified driving behavior into **GuardScore Tokens (GST)**, enabling:
-- Dynamic insurance pricing based on cryptographic proof
-- ESG-compliant fleet monetization
-- Regenerative finance (ReFi) incentive structures
+We investigate the transmutation of verified driving behavior into **GuardScore Tokens (GST)** for:
+- Dynamic insurance models based on cryptographic proof
+- ESG-compliant fleet analysis
+- Regenerative finance (ReFi) research
 
 ---
 
-## 📊 Impact & Validation
+## 📊 Impact & Validation (Current Status)
 
 | Metric | Status |
 | :--- | :--- |
-| **Technology Readiness Level** | TRL 6 (Validated in Digital Twin) |
+| **Technology Readiness Level** | TRL 5 (Validated in Digital Twin) |
 | **Validation Environment** | Salvador Living Lab (City-Twin-Engine) |
 | **Target Market** | Connected Vehicle Forensics & Smart City Infrastructure |
 | **Institutional Alignment** | Insurance Sector, Law Enforcement, Urban Mobility Governance |
@@ -62,54 +62,50 @@ We transmute verified driving behavior into **GuardScore Tokens (GST)**, enablin
 
 ---
 
-## 🏛️ Institutional Pillars & ESG Innovation
+## 🏛️ Institutional Pillars & ESG Investigation
 
 <table align="center">
   <tr>
     <td align="center" width="33%">
       <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_hardware_edge_v2.png" width="100%" alt="GuardDrive Edge Device Root of Trust Hardware"><br>
-      <b>Industrial Hardware</b><br>V2 Premium Root of Trust
+      <b>Hardware Research</b><br>V2 Root of Trust Prototypes
     </td>
     <td align="center" width="33%">
       <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_esg_tokenization_v2.png" width="100%" alt="ESG Telematic Tokenization Blockchain Logic"><br>
-      <b>ESG Tokenization</b><br>V2 Ultra Green Infrastructure
+      <b>ESG Tokenization</b><br>Green Infrastructure Models
     </td>
     <td align="center" width="33%">
       <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_vehicle_forensics_premium.png" width="100%" alt="Vehicle Forensics Evidence Analytics"><br>
-      <b>Forensic Analytics</b><br>High-Confidence Validation
+      <b>Forensic Analytics</b><br>Preliminary Validation Studies
     </td>
   </tr>
 </table>
 
 ---
 
-## 🌍 Institutional Use Cases
+## 🌍 Theoretical Use Cases
 
 ### 🏢 Insurance Sector
-**Automated Claims Processing**: Cryptographically-signed telemetry enables instant, fraud-resistant claims validation. Insurers gain access to immutable evidence chains, reducing investigation costs by up to **70%**.
+**Automated Claims Research**: Investigating how cryptographically-signed telemetry could enable fraud-resistant claims validation and reduce investigation costs.
 
 ### ⚖️ Law Enforcement & Forensics
-**Criminal Investigation Support**: Our PoPE protocol provides court-admissible evidence for accident reconstruction and criminal cases. Chain of custody is mathematically guaranteed from sensor to courtroom.
+**Investigation Support Models**: Exploring how the PoPE protocol could provide admissible evidence for accident reconstruction.
 
 ### 🌆 Smart Cities & Urban Governance
-**Real-Time Fleet Management**: Municipalities can monitor ESG compliance, optimize traffic flow, and enforce environmental regulations using our Digital Twin validation layer.
-
-### 🚗 Autonomous Vehicle Fleets
-**Trust Layer for L4/L5 Systems**: Autonomous operators require absolute certainty in decision provenance. GuardDrive provides the "black box" infrastructure for algorithmic accountability.
+**Fleet Management Studies**: Researching how municipalities can monitor ESG compliance using Digital Twin validation layers.
 
 ---
 
-## 🛠️ Core Technology Stack
+## 🛠️ Preliminary Tech Stack
 
 - **Architecture**: [Next.js 16](https://nextjs.org/) (Edge Optimized Connectivity)
-- **Simulation Engine**: Custom **City-Twin-Engine** (TRL 6 Physics Modeling)
-- **Sovereign Identity**: Integrated **GuardPass** Layer (Identity & Root of Trust)
-- **Blockchain Layer**: Immutable telemetry anchoring with ZK-Privacy
-- **Hardware Integration**: ESP32-S3 + Secure Element (HSM) for PoPE
+- **Simulation Engine**: Custom **City-Twin-Engine** (TRL 5 Physical Modeling)
+- **Sovereign Identity**: Experimental **GuardPass** Layer (Identity & Root of Trust)
+- **Hardware Integration**: Research on ESP32-S3 + Secure Element (HSM) for PoPE
 
 ---
 
-## 🚀 Rapid Deployment
+## 🚀 Deployment (Research Lab)
 
 ```bash
 # Clone the gateway
@@ -120,29 +116,29 @@ cd guarddrive-pilot
 npm install && npm run dev
 ```
 
-**Live Demo**: [https://guarddrive-pilot.vercel.app](https://guarddrive-pilot.vercel.app)
+**Live Prototype**: [https://guarddrive-pilot.vercel.app](https://guarddrive-pilot.vercel.app)
 
 ---
 
-## 🔐 Sovereignty & IP Lockdown
+## 🔐 Sovereignty & IP Notes
 
-Este repositório atua como a vitrine técnica sanitizada do ecossistema. Toda a lógica algorítmica proprietária e o IP estratégico residem no **Sovereign Vault**, acessível apenas via protocolos de auditoria privada.
+Este repositório atua como a vitrine técnica sanitizada do projeto. Toda a lógica algorítmica proprietária e o IP estratégico residem no **Sovereign Vault**.
 
 ### 🔗 Ecosystem Navigation
-- **[GuardDrive Organization](https://github.com/guarddrive)**: Main institutional hub
+- **[GuardDrive Organization](https://github.com/guarddrive)**: Institutional research hub
 - **Technical Documentation**: Available in `/docs` directory
-- **Sovereign Vault**: Private IP repository (access by institutional partnership only)
+- **Sovereign Vault**: Private IP repository (access by partnership only)
 
 ---
 
-**Governance**: [Symbeon Labs / GuardDrive Org](https://github.com/guarddrive)  
+**Research Governance**: [Symbeon Labs / GuardDrive Org](https://github.com/guarddrive)  
 **Technical Lead**: [SH1W4 / João](https://github.com/SH1W4)  
-**Deployment Status**: `ORBITAL_LAUNCH` (Pilot V4.3 - Active Sovereign Hub)
+**Deployment Status**: `RESEARCH_MODE` (Pilot V4.3 - Active Research Hub)
 
 ---
 
 <div align="center">
 
-*Transforming the chaos of telematic data into the sovereignty of technical truth.*
+*Exploring the intersection of telematic data and technical truth.*
 
 </div>

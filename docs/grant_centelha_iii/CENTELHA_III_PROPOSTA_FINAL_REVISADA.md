@@ -23,7 +23,7 @@ O GuardDrive propõe a primeira **Infraestrutura Pública Digital (DPI)** para a
 
 ---
 
-## ⚙️ 3. Modelo Técnico: Protocolo L1 Core (Maturidade TRL 6)
+## ⚙️ 3. Modelo Técnico: Protocolo L1 Core (Maturidade TRL 4/5)
 O sistema opera em uma arquitetura de rigor em três camadas:
 1.  **Camada Forense (L1)**: Assinatura ECDSA-secp521r1 integrada ao OBD-II. Registramos o "DNA do Incidente" (Frenagem, Força-G, Torque) em tempo real e offline.
 2.  **Camada de Auditoria (L3 - LogicValidator)**: Motor de explicabilidade que cruza telemetria com modelos inerciais para validar a verdade física contra a narrativa humana.

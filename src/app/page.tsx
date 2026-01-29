@@ -182,7 +182,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-3 gap-8 pt-8 opacity-40">
                <div className="space-y-2">
                  <div className="h-0.5 w-full bg-[#00FF88]" />
-                 <span className="text-[8px] font-bold tracking-widest">TRL 6+</span>
+                 <span className="text-[8px] font-bold tracking-widest">TRL 4/5</span>
                </div>
                <div className="space-y-2">
                  <div className="h-0.5 w-full bg-white/20" />
@@ -285,7 +285,7 @@ export default function LandingPage() {
               <Gavel className="h-8 w-8 text-[#00FF88] group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-black uppercase tracking-tight">Trinity Protocol</h3>
               <p className="text-xs text-white/50 leading-relaxed">
-                Balances Narrative (ESG value), Technical (TRL 6+ rigor), and Compliance (regulatory conformity) for institutional readiness.
+                Balances Narrative (ESG value), Technical (TRL 4/5 rigor), and Compliance (regulatory conformity) for institutional readiness.
               </p>
             </motion.div>
 
@@ -328,7 +328,7 @@ export default function LandingPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/10">
               <div className="p-8 space-y-2">
                 <div className="text-[10px] text-[#00FF88] font-bold uppercase tracking-widest">Technology Readiness Level</div>
-                <div className="text-2xl font-black">TRL 6</div>
+                <div className="text-2xl font-black">TRL 4/5</div>
                 <div className="text-xs text-white/40">Validated in Digital Twin</div>
               </div>
               <div className="p-8 space-y-2">

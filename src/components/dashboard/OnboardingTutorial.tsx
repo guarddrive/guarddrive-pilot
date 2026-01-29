@@ -19,7 +19,7 @@ const steps: Step[] = [
     targetId: "pilot-validation-card",
     title: "MÉTRICAS_DE_RIGOR_TÉCNICO",
     what: "Consolidação de dados operacionais reais em ambiente controlado.",
-    why: "A conformidade com TRL 6 exige a validação estatística de eventos reais. Números precisos eliminam incertezas operacionais.",
+    why: "A transição para TRL 6 exige a validação estatística de eventos reais. Números precisos eliminam incertezas operacionais conforme validado em TRL 5.",
     advantage: "Enquanto sistemas legados dependem de modelos preditivos puros, este protótipo utiliza telemetria pericial auditável em tempo de execução."
   },
   {

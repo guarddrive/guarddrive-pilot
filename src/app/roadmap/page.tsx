@@ -7,9 +7,9 @@ import { ArrowLeft, Shield, Globe, Cpu, Zap, ChevronRight } from "lucide-react";
 
 const roadmapData = [
   {
-    trl: "TRL 6",
+    trl: "TRL 4/5",
     status: "CURRENT",
-    title: "Validação em Ambiente Relevante",
+    title: "Validação em Ambiente Simulado",
     description: "Conclusão do ciclo de testes no Salvador Living Lab via Digital Twin. Protocolo L1 Core estabilizado e Cadeia de Custódia validada.",
     icon: <Cpu className="h-6 w-6" />,
     color: "bg-[#00FF88]"
@@ -87,7 +87,7 @@ export default function RoadmapPage() {
                    <p className="text-sm text-white/40 leading-relaxed max-w-lg uppercase tracking-wider">
                      {item.description}
                    </p>
-                   {item.trl === "TRL 6" && (
+                   {item.trl === "TRL 4/5" && (
                      <div className="pt-4 flex items-center gap-3 text-[#00FF88] text-[9px] font-bold uppercase tracking-widest">
                         <div className="w-2 h-2 rounded-full bg-[#00FF88] animate-pulse" />
                         Status: Auditoria Local Concluída

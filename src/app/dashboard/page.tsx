@@ -167,7 +167,7 @@ export default function PilotDashboard() {
         <div id="pilot-validation-card" className="col-span-12 md:col-span-5 bg-white/5 border border-white/10 p-6 rounded-xl space-y-4">
           <div className="flex justify-between items-center border-b border-white/5 pb-3">
              <h3 className="font-bold text-[#00FF88]">Métricas de Rigor Operacional</h3>
-             <span className="text-[9px] px-2 py-0.5 bg-[#00FF88]/10 text-[#00FF88] rounded border border-[#00FF88]/20">TRL 6 → TRL 7 READY</span>
+             <span className="text-[9px] px-2 py-0.5 bg-[#00FF88]/10 text-[#00FF88] rounded border border-[#00FF88]/20">TRL 4/5 → TRL 6 READY</span>
           </div>
           <div className="grid grid-cols-2 gap-y-4 gap-x-8 font-mono">
             <div className="space-y-1">
