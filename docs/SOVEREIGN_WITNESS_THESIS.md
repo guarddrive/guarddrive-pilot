@@ -31,10 +31,20 @@ A tese baseia-se na convergência inseparável de três dimensões que, historic
 O dado não pode ser uma "promessa". Ele deve ser um pulso assinado eletronicamente no momento exato da compressão inercial ou da queima de torque. É a materialização do **PoPE (Proof of Physical Evidence)**. Sem L1, a blockchain é apenas um registro de mentiras assinadas.
 
 ### B. Privacidade Soberana (A Camada L3)
-A auditoria não pode exigir a exposição da vida privada. A tese defende que o "Direito de Ir e Vir" exige o "Direito de Não ser Rastreado sem Causa Probável". O uso de **ZKP (Zero-Knowledge Proofs)** permite provar a *conformidade* sem revelar o *contexto*. É a validação efêmera.
+A auditoria não pode exigir a exposição da vida privada ou de rotas operacionais estratégicas. O uso de **ZKP (Zero-Knowledge Proofs)** permite provar a *conformidade* sem revelar o *contexto*. É a validação efêmera.
 
 ### C. Utilidade Econômica (O Motor BaaT)
-Dados de alta confiança são ativos financeiros. Se a verdade é absoluta e a identidade é provada, o comportamento torna-se uma moeda. O **Behavior-as-a-Token** é a ponte que transforma o rigor técnico em capital econômico, fechando o ciclo de incentivos da mobilidade regenerativa.
+Dados de alta confiança são ativos financeiros. Se a verdade é absoluta e a identidade é provada, o comportamento torna-se uma moeda. O **Behavior-as-a-Token** é a ponte que transforma o rigor técnico em capital econômico.
+
+---
+
+## 🐝 3. Expansão: Autonomia de Enxames (Drone Swarms)
+
+A tese da Testemunha Soberana transcende o veículo terrestre. Em missões de **Enxames de Drones (Multi-Agent Systems)**, a soberania é coletiva.
+
+- **Consciência de Enxame**: O protocolo permite que drones validem as intenções uns dos outros via SEVE sem expor planos de voo completos.
+- **Coordenação Descentralizada**: A verdade física assinada na origem (L1) serve como o "batimento cardíaco" do enxame, permitindo operações seguras em ambientes contestados ou sem sinal de GPS.
+- **Auditoria Aérea Forense**: No caso de incidentes aéreos, o enxame atua como uma testemunha distribuída, onde a memória do evento é fragmentada e protegida criptograficamente entre os nós.
 
 ---
 
