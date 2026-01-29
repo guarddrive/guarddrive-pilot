@@ -1,8 +1,12 @@
+<div align="center">
+  <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/hero_banner.png" width="100%" alt="GuardDrive Pilot Banner">
+</div>
+
 # 🦅 GuardDrive Pilot: The Sovereign Infrastructure Portal
 
 > **Official Digital Twin & Branding Gateway for the GuardDrive Ecosystem.**
 
-![GuardDrive Sovereign Infrastructure](/p/guarddrive_pilot_hero_v43_1769447569343.png)
+---
 
 ## 📖 Overview
 O **GuardDrive Pilot** é o portal de comando e demonstração telemática de alta fidelidade do ecossistema GuardDrive. Ele atua como o **Digital Twin** (Gêmeo Digital) de infraestrutura urbana, permitindo a visualização em tempo real de perícia veicular sob o **Protocolo Symbeon**.
