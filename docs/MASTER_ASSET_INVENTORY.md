@@ -23,6 +23,7 @@ Este documento classifica e enumera todos os ativos do ecossistema **GuardDrive*
 | T4 | **LogicValidator** | **VAULT PRIVADO** | Auditoria de lógica (Ex-Themis). |
 | T5 | **GrantOptimizer** | **VAULT PRIVADO** | IA de validação de editais (Ex-EditalShield). |
 | T6 | **Trinity Protocol** | `vault/grants/engine/` | Motor de adaptação narrativa e técnica para editais. |
+| T7 | **Premium Asset Hub** | `.github/profile/assets/` | Central de ativos de alta fidelidade V2/V3. |
 
 ## ⚖️ 3. Vault Jurídico e Estratégico (PRIVADO)
 | ID | Ativo | Localização | Descrição |
