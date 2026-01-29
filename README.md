@@ -24,7 +24,7 @@ O **GuardDrive Pilot** é o centro nevrálgico de simulação e demonstração d
 
 Esta interface virtualiza o comportamento de frotas autônomas e conectadas, transformando dados telemáticos complexos em visualizações auditáveis e evidências forenses imutáveis.
 
-![GuardDrive Industrial CAD Blueprints](https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/guarddrive_technical_blueprints_v3_1769670603759.png)
+![GuardDrive Industrial CAD Blueprints](https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_technical_blueprints_v3.png)
 
 ---
 
@@ -67,15 +67,15 @@ We transmute verified driving behavior into **GuardScore Tokens (GST)**, enablin
 <table align="center">
   <tr>
     <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/guarddrive_edge_device_v2_premium_1769670033446.png" width="100%" alt="GuardDrive Edge Device Root of Trust Hardware"><br>
+      <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_hardware_edge_v2.png" width="100%" alt="GuardDrive Edge Device Root of Trust Hardware"><br>
       <b>Industrial Hardware</b><br>V2 Premium Root of Trust
     </td>
     <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/guarddrive_esg_tokenization_diagram_v2_ultra_1769670255269.png" width="100%" alt="ESG Telematic Tokenization Blockchain Logic"><br>
+      <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_esg_tokenization_v2.png" width="100%" alt="ESG Telematic Tokenization Blockchain Logic"><br>
       <b>ESG Tokenization</b><br>V2 Ultra Green Infrastructure
     </td>
     <td align="center" width="33%">
-      <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/guarddrive_vehicle_forensics_diagram_premium_1769670445923.png" width="100%" alt="Vehicle Forensics Evidence Analytics"><br>
+      <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/diagram_vehicle_forensics_premium.png" width="100%" alt="Vehicle Forensics Evidence Analytics"><br>
       <b>Forensic Analytics</b><br>High-Confidence Validation
     </td>
   </tr>
