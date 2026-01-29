@@ -38,17 +38,15 @@ Dados de alta confiança são ativos financeiros. Se a verdade é absoluta e a i
 
 ---
 
-## 🐝 3. Expansão: Autonomia de Enxames (Drone Swarms)
+---
 
-A tese da Testemunha Soberana transcende o veículo terrestre. Em missões de **Enxames de Drones (Multi-Agent Systems)**, a soberania é coletiva.
+## 🏗️ 3. Agnosticidade Arquitetural
 
-- **Consciência de Enxame**: O protocolo permite que drones validem as intenções uns dos outros via SEVE sem expor planos de voo completos.
-- **Coordenação Descentralizada**: A verdade física assinada na origem (L1) serve como o "batimento cardíaco" do enxame, permitindo operações seguras em ambientes contestados ou sem sinal de GPS.
-- **Auditoria Aérea Forense**: No caso de incidentes aéreos, o enxame atua como uma testemunha distribuída, onde a memória do evento é fragmentada e protegida criptograficamente entre os nós.
+Embora os casos de uso primários desta tese foquem na mobilidade veicular urbana, os fundamentos do **Sovereign Witness Framework** são estruturalmente agnósticos. A lógica de **Verdade Física Assinada (L1)** e **Validação por Conhecimento Zero (L3)** pode ser estendida a qualquer sistema autônomo ou multi-agente que exija coordenação de alta confiança e integridade forense inalienável.
 
 ---
 
-## 🏛️ 3. A Visão: Infraestrutura Pública Digital (DPI)
+## 🏛️ 4. A Visão: Infraestrutura Pública Digital (DPI)
 
 A Tese da Testemunha Soberana postula que os protocolos GuardDrive não são produtos, mas sim **Interface de Verdade**. 
 
