@@ -4,8 +4,6 @@
 -->
 
 <div align="center">
-  <img src="https://raw.githubusercontent.com/guarddrive/.github/main/profile/assets/hero_banner.png" width="100%" alt="GuardDrive Pilot: Immersive Digital Twin Mobility Simulation">
-</div>
 
 # 🦅 GUARDDRIVE PILOT
 ## The Sovereign Infrastructure Portal & Digital Twin Gateway
