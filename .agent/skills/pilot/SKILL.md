@@ -7,7 +7,7 @@ extends: SYMBEON_SKILL_STANDARD.md
 ---
 
 ## 1. Engine Mission (INTERFACE)
-The mission of the **Pilot** is to provide a high-confidence, sovereign interface for vehicle forensics virtualization. It serves as the "Sovereign Glass" through which the cognitive engines (Themis, SEVE) materialize complex data into actionable truth.
+The mission of the **Pilot** is to provide a high-confidence, sovereign interface for vehicle forensics and multi-agent autonomy virtualization. It serves as the "Sovereign Glass" through which the cognitive engines (Themis, SEVE) materialize complex data—from individual vehicles to entire autonomous swarms—into actionable truth.
 
 ## 2. Core Technical Domain
 - **Visualization**: Next.js 14+, Framer Motion for high-rigor animations.
